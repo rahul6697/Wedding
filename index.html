@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Invitation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Cormorant Garamond', serif;
+            background: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80') no-repeat center center fixed;
+            background-size: cover;
+            color: #4c3a32;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+            min-height: 100vh;
+            background: rgba(255, 255, 245, 0.75);
+            border-radius: 20px;
+            animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .invitation {
+            background-color: #fff8f0;
+            border: 2px solid #98c1a4;
+            border-radius: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            max-width: 600px;
+            animation: slideUp 2s ease-in-out;
+        }
+
+        .invitation h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 60px;
+            margin: 0;
+            color: #3a5a40;
+            animation: textPop 1.5s ease-in-out;
+        }
+
+        .invitation h2 {
+            font-size: 40px;
+            font-family: 'Great Vibes', cursive;
+            color: #3a5a40;
+            margin: 10px 0 20px;
+            animation: textPop 1.5s ease-in-out;
+        }
+
+        .date {
+            font-size: 40px;
+            font-family: 'Playfair Display', serif;
+            margin: 20px 0;
+            color: #3a5a40;
+            font-weight: 700;
+            animation: textFade 2s ease-in-out;
+        }
+
+        .day {
+            font-size: 48px;
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 10px;
+            color: #3a5a40;
+            font-weight: 700;
+        }
+
+        .venue {
+            font-size: 24px;
+            font-family: 'Cormorant Garamond', serif;
+            color: #3a5a40;
+            margin: 10px 0;
+            animation: textFade 2s ease-in-out;
+        }
+
+        p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 24px;
+            color: #3a5a40;
+            margin: 15px 0;
+        }
+
+        .details {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20px;
+            color: #3a5a40;
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        .countdown {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #3a5a40;
+            font-family: 'Cormorant Garamond', serif;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(100px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes textPop {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes textFade {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        @media (max-width: 600px) {
+            .invitation h1 { font-size: 40px; }
+            .invitation h2 { font-size: 30px; }
+            .date, .day { font-size: 30px; }
+            p, .venue, .details { font-size: 18px; }
+            .countdown { font-size: 18px; }
+            .invitation { padding: 25px; }
+        }
+
+        @media (prefers-reduced-motion) {
+            .container, .invitation, 
+            .invitation h1, .invitation h2,
+            .date, .venue {
+                animation: none !important;
+            }
+            .countdown {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="invitation">
+            <h1>Amrutha Sreeraj</h1>
+            <h2>&</h2>
+            <h1>Dipin Krishna</h1>
+            <div class="day">Monday</div>
+            <div class="date">April 28, 2025</div>
+            
+            <div class="details">
+                <strong>Ceremony:</strong> 10:30 AM<br>
+                <strong>Reception:</strong> 12:30 PM<br>
+                <strong>Dress Code:</strong> Traditional Attire
+            </div>
+            
+            <div class="venue">Anjali Auditorium, Omallur, Pathanamthitta</div>
+            
+            <p>You are cordially invited to celebrate our wedding day!</p>
+            
+            <div id="countdown" class="countdown">Loading countdown...</div>
+        </div>
+    </div>
+
+    <script>
+        function countdown() {
+            const weddingDate = new Date('April 28, 2025 00:00:00').getTime();
+            const now = new Date().getTime();
+            const difference = weddingDate - now;
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            const pad = (n) => n < 10 ? '0' + n : n;
+            
+            if (difference > 0) {
+                document.getElementById('countdown').innerHTML = 
+                    `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s until our wedding!`;
+            } else {
+                document.getElementById('countdown').innerHTML = 
+                    "The wedding has passed! Thank you for celebrating with us!";
+            }
+        }
+
+        setInterval(countdown, 1000);
+        countdown(); // Initial call
+    </script>
+</body>
+</html>
