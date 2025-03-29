@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
     <style>
         body {
             margin: 0;
@@ -73,17 +73,21 @@
 
         .venue {
             font-size: 24px;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', sans-serif;
             color: #3a5a40;
-            margin: 10px 0;
+            margin: 20px 0;
+            font-weight: 500;
+            letter-spacing: 0.5px;
             animation: textFade 2s ease-in-out;
         }
 
-        p {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 24px;
+        .invitation-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 22px;
             color: #3a5a40;
-            margin: 15px 0;
+            margin: 25px 0;
+            font-weight: 400;
+            line-height: 1.6;
         }
 
         .details {
@@ -96,9 +100,11 @@
 
         .countdown {
             margin-top: 20px;
-            font-size: 24px;
+            font-size: 22px;
             color: #3a5a40;
-            font-family: 'Cormorant Garamond', serif;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 500;
+            letter-spacing: 0.5px;
             animation: pulse 2s infinite;
         }
 
@@ -132,7 +138,7 @@
             .invitation h1 { font-size: 40px; }
             .invitation h2 { font-size: 30px; }
             .date, .day { font-size: 30px; }
-            p, .venue, .details { font-size: 18px; }
+            .venue, .invitation-text, .details { font-size: 18px; }
             .countdown { font-size: 18px; }
             .invitation { padding: 25px; }
         }
@@ -160,13 +166,12 @@
             
             <div class="details">
                 <strong>Ceremony:</strong> 10:30 AM<br>
-                <strong>Reception:</strong> 12:30 PM<br>
-                <strong>Dress Code:</strong> Traditional Attire
+                <strong>Reception:</strong> 12:30 PM
             </div>
             
             <div class="venue">Anjali Auditorium, Omallur, Pathanamthitta</div>
             
-            <p>You are cordially invited to celebrate our wedding day!</p>
+            <div class="invitation-text">You are cordially invited to celebrate our wedding day!</div>
             
             <div id="countdown" class="countdown">Loading countdown...</div>
         </div>
