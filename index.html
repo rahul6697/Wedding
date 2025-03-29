@@ -112,6 +112,7 @@
             font-weight: 700;
             position: relative;
             display: inline-block;
+            padding-right: 25px; /* Space for pin */
         }
 
         .venue a {
@@ -130,16 +131,10 @@
         .venue::after {
             content: "📍"; /* Map pin emoji */
             position: absolute;
-            right: -30px;
+            right: 0;
             top: 50%;
             transform: translateY(-50%);
             font-size: 20px;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .venue:hover::after {
-            opacity: 1;
         }
 
         .invitation-text {
@@ -192,7 +187,6 @@
                 font-size: 20px;
             }
             .venue::after {
-                right: -25px;
                 font-size: 18px;
             }
         }
