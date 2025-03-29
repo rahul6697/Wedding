@@ -6,83 +6,65 @@
     <title>Wedding Invitation</title>
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Loading Screen */
-        .loading-screen {
+        /* Base Styles */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cormorant Garamond', serif;
+            color: #4c3a32;
+            overflow-x: hidden;
+        }
+
+        /* Background Image (Shows First) */
+        .background-image {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://lh3.googleusercontent.com/d/1XVMv2DQp6PsRJa8uCXt0iZQh6GdLOtKe') no-repeat center center fixed;
+            background: url('https://lh3.googleusercontent.com/d/1XVMv2DQp6PsRJa8uCXt0iZQh6GdLOtKe') no-repeat center center;
             background-size: cover;
+            z-index: -1;
+        }
+
+        /* Content Container (Initially Hidden) */
+        .content-wrapper {
+            min-height: 200vh; /* Extra space to ensure scroll */
+        }
+
+        .invitation-container {
+            position: absolute;
+            top: 100vh; /* Starts below viewport */
+            left: 0;
+            width: 100%;
             display: flex;
             justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            transition: opacity 1s ease-out;
+            padding: 50px 20px;
+            box-sizing: border-box;
         }
 
-        .loading-screen.fade-out {
-            opacity: 0;
-            pointer-events: none;
-        }
-
-        .loading-text {
-            font-family: 'Great Vibes', cursive;
-            font-size: 3em;
-            color: white;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-        }
-
-        /* Main Content */
-        body {
-            margin: 0;
-            font-family: 'Cormorant Garamond', serif;
-            color: #4c3a32;
-            opacity: 0;
-            transition: opacity 1.5s ease-in;
-        }
-
-        body.content-loaded {
-            opacity: 1;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            text-align: center;
-            min-height: 100vh;
-            background: rgba(255, 255, 245, 0.75);
-            border-radius: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-            transform: translateY(20px);
-            transition: transform 1s ease-out;
-        }
-
-        .container.scrolled {
-            transform: translateY(0);
-        }
-
+        /* Invitation Card */
         .invitation {
-            background-color: #fff8f0;
+            background-color: rgba(255, 248, 240, 0.9);
             border: 2px solid #98c1a4;
             border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
             padding: 40px;
             max-width: 600px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        /* Individual Elements */
+        .invitation > * {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 1s ease-out 0.3s;
+            transition: all 0.8s ease;
         }
 
-        .invitation.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
+        /* Text Styles */
         .invitation h1 {
             font-family: 'Great Vibes', cursive;
             font-size: 60px;
@@ -97,20 +79,20 @@
             margin: 10px 0 20px;
         }
 
-        .date {
-            font-size: 40px;
+        .date, .day {
             font-family: 'Playfair Display', serif;
-            margin: 20px 0;
             color: #3a5a40;
             font-weight: 700;
         }
 
         .day {
             font-size: 48px;
-            font-family: 'Playfair Display', serif;
             margin-bottom: 10px;
-            color: #3a5a40;
-            font-weight: 700;
+        }
+
+        .date {
+            font-size: 40px;
+            margin: 20px 0;
         }
 
         .muhurtham {
@@ -158,66 +140,101 @@
             letter-spacing: 1px;
         }
 
+        /* Animation Classes */
+        .show-invitation {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-element {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Responsive Design */
         @media (max-width: 600px) {
-            .invitation h1 { font-size: 40px; }
-            .invitation h2 { font-size: 30px; }
-            .date, .day { font-size: 30px; }
-            .muhurtham, .venue, .invitation-text { font-size: 24px; }
-            .countdown { font-size: 20px; }
-            .invitation { padding: 25px; }
-            .loading-text { font-size: 2em; }
+            .invitation {
+                padding: 25px;
+            }
+            .invitation h1 {
+                font-size: 40px;
+            }
+            .invitation h2 {
+                font-size: 30px;
+            }
+            .date, .day {
+                font-size: 30px;
+            }
+            .muhurtham, .venue, .invitation-text {
+                font-size: 24px;
+            }
+            .countdown {
+                font-size: 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen">
-        <div class="loading-text">Amrutha & Dipin</div>
-    </div>
+    <!-- Background Image (Shows First) -->
+    <div class="background-image"></div>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="invitation">
-            <h1>Amrutha Sreeraj</h1>
-            <h2>&</h2>
-            <h1>Dipin Krishna</h1>
-            <div class="day">Monday</div>
-            <div class="date">April 28, 2025</div>
-            
-            <div class="muhurtham">
-                Muhurtham: 12:05 PM - 12:25 PM
+    <!-- Content Wrapper -->
+    <div class="content-wrapper">
+        <div class="invitation-container">
+            <div class="invitation">
+                <h1>Amrutha Sreeraj</h1>
+                <h2>&</h2>
+                <h1>Dipin Krishna</h1>
+                <div class="day">Monday</div>
+                <div class="date">April 28, 2025</div>
+                
+                <div class="muhurtham">
+                    Muhurtham: 12:05 PM - 12:25 PM
+                </div>
+                
+                <div class="venue">
+                    <a href="https://maps.app.goo.gl/nAJQXbddyTW2hYai7?g_st=iw" target="_blank">
+                        Anjali Auditorium, Omallur, Pathanamthitta
+                    </a>
+                </div>
+                
+                <div class="invitation-text">You are cordially invited to celebrate our wedding day!</div>
+                
+                <div id="countdown" class="countdown">Loading countdown...</div>
             </div>
-            
-            <div class="venue">
-                <a href="https://maps.app.goo.gl/nAJQXbddyTW2hYai7?g_st=iw" target="_blank">
-                    Anjali Auditorium, Omallur, Pathanamthitta
-                </a>
-            </div>
-            
-            <div class="invitation-text">You are cordially invited to celebrate our wedding day!</div>
-            
-            <div id="countdown" class="countdown">Loading countdown...</div>
         </div>
     </div>
 
     <script>
-        // Loading screen transition
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.querySelector('.loading-screen').classList.add('fade-out');
-                document.body.classList.add('content-loaded');
-                
-                // Trigger scroll animation after loading
-                setTimeout(function() {
-                    document.querySelector('.container').classList.add('scrolled');
-                    document.querySelector('.invitation').classList.add('visible');
-                }, 300);
-            }, 1500); // 1.5 second loading screen
-        });
+        // Scroll Animation
+        function handleScroll() {
+            const invitation = document.querySelector('.invitation');
+            const elements = document.querySelectorAll('.invitation > *');
+            const scrollPosition = window.scrollY;
+            const triggerPosition = window.innerHeight * 0.7;
 
-        // Countdown timer
+            // Show invitation container
+            if (scrollPosition > triggerPosition) {
+                invitation.classList.add('show-invitation');
+                
+                // Animate elements sequentially
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('animate-element');
+                    }, index * 200); // 200ms delay between elements
+                });
+                
+                // Remove event listener after animation
+                window.removeEventListener('scroll', handleScroll);
+            }
+        }
+
+        // Initial setup
+        window.addEventListener('scroll', handleScroll);
+
+        // Countdown Timer
         function countdown() {
-            const weddingDate = new Date('April 28, 2025 12:05:00').getTime(); // Set to muhurtham time
+            const weddingDate = new Date('April 28, 2025 12:05:00').getTime();
             const now = new Date().getTime();
             const difference = weddingDate - now;
 
@@ -238,19 +255,7 @@
         }
 
         setInterval(countdown, 1000);
-        countdown(); // Initial call
-
-        // Scroll trigger for animation (fallback)
-        window.addEventListener('scroll', function() {
-            const container = document.querySelector('.container');
-            const containerPosition = container.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.3;
-
-            if (containerPosition < screenPosition) {
-                container.classList.add('scrolled');
-                document.querySelector('.invitation').classList.add('visible');
-            }
-        });
+        countdown();
     </script>
 </body>
 </html>
