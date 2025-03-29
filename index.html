@@ -15,7 +15,7 @@
             overflow-x: hidden;
         }
 
-        /* Background Image (Shows First) - Using alternative URL format */
+        /* Background Image - Full View */
         .background-image {
             position: fixed;
             top: 0;
@@ -27,24 +27,28 @@
             z-index: -1;
         }
 
-        /* Rest of your CSS remains exactly the same */
+        /* Content Container */
         .content-wrapper {
-            min-height: 200vh;
+            min-height: 100vh;
+            position: relative;
         }
 
         .invitation-container {
-            position: absolute;
-            top: 100vh;
+            position: fixed;
+            top: 0;
             left: 0;
             width: 100%;
+            height: 100%;
             display: flex;
             justify-content: center;
-            padding: 50px 20px;
+            align-items: center;
+            padding: 20px;
             box-sizing: border-box;
         }
 
+        /* Invitation Card */
         .invitation {
-            background-color: rgba(255, 248, 240, 0.9);
+            background-color: rgba(255, 248, 240, 0.95);
             border: 2px solid #98c1a4;
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
@@ -52,15 +56,153 @@
             max-width: 600px;
             text-align: center;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateY(20px);
             transition: opacity 1s ease, transform 1s ease;
         }
 
-        /* ... (rest of your existing CSS styles) ... */
+        /* Individual Elements */
+        .invitation > * {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        /* Text Styles */
+        .invitation h1 {
+            font-family: 'Great Vibes', cursive;
+            font-size: 60px;
+            margin: 0;
+            color: #3a5a40;
+            transition-delay: 0.2s;
+        }
+
+        .invitation h2 {
+            font-size: 40px;
+            font-family: 'Great Vibes', cursive;
+            color: #3a5a40;
+            margin: 10px 0 20px;
+            transition-delay: 0.3s;
+        }
+
+        .date, .day {
+            font-family: 'Playfair Display', serif;
+            color: #3a5a40;
+            font-weight: 700;
+            transition-delay: 0.4s;
+        }
+
+        .day {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .date {
+            font-size: 40px;
+            margin: 20px 0;
+        }
+
+        .muhurtham {
+            font-family: 'Dancing Script', cursive;
+            font-size: 26px;
+            color: #3a5a40;
+            margin: 15px 0;
+            font-weight: 700;
+            transition-delay: 0.5s;
+        }
+
+        .venue {
+            font-size: 28px;
+            font-family: 'Dancing Script', cursive;
+            color: #3a5a40;
+            margin: 20px 0;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding-right: 25px;
+            transition-delay: 0.6s;
+        }
+
+        .venue a {
+            color: #2d4a32;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-bottom: 2px dotted #98c1a4;
+            padding-bottom: 2px;
+        }
+
+        .venue a:hover {
+            color: #1e3a25;
+            border-bottom-style: solid;
+        }
+
+        .venue::after {
+            content: "📍";
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+        }
+
+        .invitation-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            color: #3a5a40;
+            margin: 25px 0;
+            font-weight: 700;
+            line-height: 1.6;
+            transition-delay: 0.7s;
+        }
+
+        .countdown {
+            margin-top: 20px;
+            font-size: 22px;
+            color: #3a5a40;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            letter-spacing: 1px;
+            transition-delay: 0.8s;
+        }
+
+        /* Animation Classes */
+        .show-invitation {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .animate-element {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .invitation {
+                padding: 25px;
+            }
+            .invitation h1 {
+                font-size: 40px;
+            }
+            .invitation h2 {
+                font-size: 30px;
+            }
+            .date, .day {
+                font-size: 30px;
+            }
+            .muhurtham, .venue, .invitation-text {
+                font-size: 24px;
+            }
+            .countdown {
+                font-size: 20px;
+            }
+            .venue::after {
+                font-size: 18px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Background Image (Shows First) -->
+    <!-- Background Image -->
     <div class="background-image"></div>
 
     <!-- Content Wrapper -->
@@ -91,27 +233,21 @@
     </div>
 
     <script>
-        // Scroll Animation
-        function handleScroll() {
+        // Show invitation immediately (removed scroll dependency)
+        document.addEventListener('DOMContentLoaded', function() {
             const invitation = document.querySelector('.invitation');
             const elements = document.querySelectorAll('.invitation > *');
-            const scrollPosition = window.scrollY;
-            const triggerPosition = window.innerHeight * 0.7;
-
-            if (scrollPosition > triggerPosition) {
-                invitation.classList.add('show-invitation');
-                
-                elements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.classList.add('animate-element');
-                    }, index * 200);
-                });
-                
-                window.removeEventListener('scroll', handleScroll);
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll);
+            
+            // Show invitation container
+            invitation.classList.add('show-invitation');
+            
+            // Animate elements sequentially
+            elements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('animate-element');
+                }, index * 200);
+            });
+        });
 
         // Countdown Timer
         function countdown() {
