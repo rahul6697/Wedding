@@ -103,23 +103,43 @@
             font-weight: 700;
         }
 
+        /* Enhanced Venue Link Styles */
         .venue {
             font-size: 28px;
             font-family: 'Dancing Script', cursive;
             color: #3a5a40;
             margin: 20px 0;
             font-weight: 700;
+            position: relative;
+            display: inline-block;
         }
 
         .venue a {
-            color: inherit;
+            color: #2d4a32;
             text-decoration: none;
             transition: all 0.3s ease;
+            border-bottom: 2px dotted #98c1a4;
+            padding-bottom: 2px;
         }
 
         .venue a:hover {
-            color: #2d4a32;
-            text-decoration: underline;
+            color: #1e3a25;
+            border-bottom-style: solid;
+        }
+
+        .venue::after {
+            content: "📍"; /* Map pin emoji */
+            position: absolute;
+            right: -30px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .venue:hover::after {
+            opacity: 1;
         }
 
         .invitation-text {
@@ -170,6 +190,10 @@
             }
             .countdown {
                 font-size: 20px;
+            }
+            .venue::after {
+                right: -25px;
+                font-size: 18px;
             }
         }
     </style>
