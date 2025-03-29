@@ -13,9 +13,10 @@
             font-family: 'Cormorant Garamond', serif;
             color: #4c3a32;
             overflow-x: hidden;
+            height: 100%;
         }
 
-        /* Background Image - Full View */
+        /* Background Image (Only visible at first) */
         .background-image {
             position: fixed;
             top: 0;
@@ -27,23 +28,23 @@
             z-index: -1;
         }
 
-        /* Content Container */
+        /* Content Container - Starts below viewport */
         .content-wrapper {
-            min-height: 100vh;
             position: relative;
+            min-height: 200vh; /* Extra space to enable scrolling */
         }
 
         .invitation-container {
-            position: fixed;
-            top: 0;
+            position: absolute;
+            top: 100vh; /* Starts just below visible area */
             left: 0;
             width: 100%;
-            height: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             padding: 20px;
             box-sizing: border-box;
+            min-height: 100vh;
         }
 
         /* Invitation Card */
@@ -202,7 +203,7 @@
     </style>
 </head>
 <body>
-    <!-- Background Image -->
+    <!-- Background Image (Shows First) -->
     <div class="background-image"></div>
 
     <!-- Content Wrapper -->
@@ -233,20 +234,35 @@
     </div>
 
     <script>
-        // Show invitation immediately (removed scroll dependency)
-        document.addEventListener('DOMContentLoaded', function() {
+        // Scroll Animation
+        function handleScroll() {
             const invitation = document.querySelector('.invitation');
             const elements = document.querySelectorAll('.invitation > *');
-            
-            // Show invitation container
-            invitation.classList.add('show-invitation');
-            
-            // Animate elements sequentially
-            elements.forEach((el, index) => {
-                setTimeout(() => {
-                    el.classList.add('animate-element');
-                }, index * 200);
-            });
+            const scrollPosition = window.scrollY;
+            const screenHeight = window.innerHeight;
+            const triggerPosition = screenHeight * 0.7; // Trigger at 70% of viewport
+
+            if (scrollPosition > triggerPosition) {
+                // Show invitation container
+                invitation.classList.add('show-invitation');
+                
+                // Animate elements sequentially
+                elements.forEach((el, index) => {
+                    setTimeout(() => {
+                        el.classList.add('animate-element');
+                    }, index * 200); // 200ms delay between elements
+                });
+                
+                // Remove event listener after animation
+                window.removeEventListener('scroll', handleScroll);
+            }
+        }
+
+        // Initialize
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', function() {
+            // Trigger scroll check on load in case already scrolled
+            handleScroll();
         });
 
         // Countdown Timer
