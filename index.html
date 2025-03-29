@@ -15,7 +15,7 @@
             overflow-x: hidden;
         }
 
-        /* Background Image (Shows First) - Zoomed Out */
+        /* Background Image (Shows First) - Using alternative URL format */
         .background-image {
             position: fixed;
             top: 0;
@@ -23,11 +23,11 @@
             width: 100%;
             height: 100%;
             background: url('https://lh3.googleusercontent.com/d/1axWniQoqPnTKjCiT1bK1VlcwLR0nZcIZ') no-repeat center center;
-            background-size: 110% auto; /* Zoomed out by 10% */
+            background-size: cover;
             z-index: -1;
         }
 
-        /* Rest of your CSS remains unchanged */
+        /* Rest of your CSS remains exactly the same */
         .content-wrapper {
             min-height: 200vh;
         }
@@ -56,7 +56,7 @@
             transition: opacity 1s ease, transform 1s ease;
         }
 
-        /* ... (all other existing CSS styles remain the same) ... */
+        /* ... (rest of your existing CSS styles) ... */
     </style>
 </head>
 <body>
