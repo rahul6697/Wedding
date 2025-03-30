@@ -3,210 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dipin & Amrutha</title>
+    <title>Dipin & Amrutha | Wedding Celebration</title>
     <style>
-        /* Ultra-Subtle Color Palette */
         :root {
-            --cream: #FAFAF7;
-            --stone: #E8E8E3;
-            --slate: #6B6B6B;
-            --clay: #B3A9A0;
+            --ivory: #FFFFF0;
+            --gold: #D4AF37;
+            --soft-gold: #E8D9B5;
+            --dark: #2A2118;
+            --red: #A52A2A;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Playfair Display', serif;
         }
         
         body {
-            font-family: 'Lora', serif;
-            background-color: var(--cream);
-            color: var(--slate);
-            margin: 0;
-            padding: 0;
-            line-height: 1.7;
-            font-weight: 300;
+            background-color: var(--ivory);
+            color: var(--dark);
+            line-height: 1.8;
+            overflow-x: hidden;
+            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
+            background-color: rgba(255, 255, 240, 0.9);
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 2rem;
+            position: relative;
         }
         
-        /* Minimal Hero Section */
-        .hero {
-            height: 60vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .invitation-card {
+            background-color: rgba(255, 255, 255, 0.92);
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--soft-gold);
+            margin: 3rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .invitation-card:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--gold), var(--red), var(--gold));
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
             text-align: center;
-            background: linear-gradient(rgba(250,250,247,0.4), rgba(250,250,247,0.4)), 
-                        url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
-            margin: 40px 0 60px;
+            margin-bottom: 2rem;
+            color: var(--dark);
+            letter-spacing: 1px;
         }
         
-        .names {
-            font-size: 3rem;
-            font-weight: 300;
-            margin: 0;
-            letter-spacing: 1px;
-            color: var(--slate);
+        .couple-names {
+            font-size: 3.5rem;
+            text-align: center;
+            margin: 2rem 0;
+            line-height: 1.2;
+            font-weight: 500;
+            position: relative;
+        }
+        
+        .couple-names span {
+            display: inline-block;
+            margin: 0 1rem;
+            font-size: 2rem;
+            color: var(--gold);
+            vertical-align: middle;
+        }
+        
+        .parents {
+            text-align: center;
+            margin: 2rem 0;
+            font-size: 1.2rem;
+            color: var(--dark);
         }
         
         .divider {
-            width: 60px;
-            height: 0.5px;
-            background: var(--clay);
-            margin: 25px auto;
-            opacity: 0.6;
+            width: 150px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+            margin: 2rem auto;
+        }
+        
+        .date-box {
+            text-align: center;
+            margin: 2.5rem 0;
+        }
+        
+        .day {
+            font-size: 2rem;
+            color: var(--red);
+            letter-spacing: 3px;
+            text-transform: uppercase;
         }
         
         .date {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            color: var(--slate);
-            opacity: 0.8;
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1;
+            color: var(--dark);
         }
         
-        /* Couple Photos */
-        .couple-photos {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin: 60px auto;
+        .month-year {
+            font-size: 1.5rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            margin-top: -0.5rem;
+            color: var(--dark);
         }
         
-        .photo-placeholder {
-            width: 240px;
-            height: 320px;
-            background-color: var(--stone);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--slate);
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-        }
-        
-        /* Details Section */
-        .section {
-            max-width: 600px;
-            margin: 60px auto;
+        .details {
+            margin: 2rem 0;
             text-align: center;
         }
         
-        .event {
-            margin-bottom: 50px;
-        }
-        
-        .event-title {
+        .details p {
+            margin-bottom: 1rem;
             font-size: 1.1rem;
-            margin-bottom: 12px;
-            font-weight: 400;
         }
         
-        .event-details {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            line-height: 1.8;
-            opacity: 0.9;
+        .time {
+            font-size: 1.3rem;
+            margin: 1.5rem 0;
+            color: var(--red);
         }
         
-        /* Parents Section */
-        .parents {
-            margin: 70px auto;
-            max-width: 600px;
+        .venue {
+            font-size: 1.4rem;
+            margin: 2rem 0;
+            line-height: 1.6;
         }
         
-        .parents-box {
-            margin-bottom: 40px;
+        .ceremony {
+            margin: 3rem 0;
+            padding: 2rem 0;
+            border-top: 1px dashed var(--soft-gold);
+            border-bottom: 1px dashed var(--soft-gold);
+        }
+        
+        .ceremony p {
+            margin-bottom: 1rem;
+        }
+        
+        .compliments {
+            margin-top: 3rem;
+            font-style: italic;
             text-align: center;
         }
         
-        .parents-title {
-            font-size: 1rem;
-            margin-bottom: 15px;
-            font-weight: 400;
+        .footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--soft-gold);
+            font-size: 1.1rem;
+            position: relative;
         }
         
-        .parents-content {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.9rem;
-            line-height: 1.8;
-            opacity: 0.9;
+        .footer:before {
+            content: "♥";
+            color: var(--red);
+            font-size: 1.2rem;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
         }
         
-        /* Responsive */
+        .signature {
+            font-family: 'Alex Brush', cursive;
+            font-size: 2.5rem;
+            margin-top: 1rem;
+            color: var(--dark);
+            line-height: 1;
+        }
+        
         @media (max-width: 768px) {
-            .names {
+            .container {
+                padding: 1rem;
+            }
+            
+            .invitation-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .couple-names {
                 font-size: 2.2rem;
             }
             
-            .couple-photos {
-                flex-direction: column;
-                align-items: center;
+            .couple-names span {
+                font-size: 1.5rem;
             }
             
-            .photo-placeholder {
-                width: 220px;
-                height: 300px;
+            .date {
+                font-size: 3rem;
+            }
+            
+            .signature {
+                font-size: 2rem;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <div>
-                <h1 class="names">Dipin & Amrutha</h1>
-                <div class="divider"></div>
-                <div class="date">28 APRIL 2025</div>
-            </div>
-        </div>
-        
-        <div class="couple-photos">
-            <div class="photo-placeholder">Dipin's Photo</div>
-            <div class="photo-placeholder">Amrutha's Photo</div>
-        </div>
-        
-        <div class="section">
-            <div class="event">
-                <div class="event-title">Wedding Ceremony</div>
-                <div class="event-details">
-                    Monday, 28th April 2025<br>
-                    Muhurtham between 12.05 pm & 12.25 pm<br>
-                    Anjali Auditorium, Omallur, Pathanamthitta
-                </div>
+        <div class="invitation-card">
+            <h1>Wedding Reception</h1>
+            
+            <div class="parents">
+                <p>Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
+                <p>"K.C. House", P.O. Mullakkodi, Mayyil, Kamur</p>
+                <p>Ph : 9947065770, 9526935135</p>
             </div>
             
-            <div class="event">
-                <div class="event-title">Reception</div>
-                <div class="event-details">
-                    Thursday, 1st May 2025<br>
-                    5.00 PM to 9.00 PM<br>
-                    Dream Palace Auditorium, Trichambaram, Taliparamba
-                </div>
-            </div>
-        </div>
-        
-        <div class="parents">
-            <div class="parents-box">
-                <div class="parents-title">Groom's Family</div>
-                <div class="parents-content">
-                    Dipin Krishna<br>
-                    Son of Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.<br>
-                    "K.C. House", P.O. Mullakkodi, Mayyil, Kamur<br>
-                    Ph: 9947065770, 9526935135<br>
-                    Grandson of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar
-                </div>
+            <div class="divider"></div>
+            
+            <div class="couple-names">
+                Dipin Krishna
+                <span>&</span>
+                Amrutha Sreeraj
             </div>
             
-            <div class="parents-box">
-                <div class="parents-title">Bride's Family</div>
-                <div class="parents-content">
-                    Amrutha Sreeraj<br>
-                    Daughter of Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai<br>
-                    Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta
-                </div>
+            <div class="parents">
+                <p>Grand Son of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar</p>
+                <p>D/o. Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai</p>
+                <p>Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta</p>
+            </div>
+            
+            <div class="date-box">
+                <div class="day">Thursday</div>
+                <div class="date">1</div>
+                <div class="month-year">May 2025</div>
+            </div>
+            
+            <div class="details">
+                <p class="time">Reception from 5.00 PM to 9.00 PM</p>
+                <p class="venue">Dream Palace Auditorium<br>Trichambaram Taliparamba</p>
+            </div>
+            
+            <div class="ceremony">
+                <p>Wedding ceremony to be solemnised on Monday 28th April 2025</p>
+                <p>At Anjali Auditorium, Omallur, Pathanamthitta</p>
+                <p>Muhurtham between 12.05 pm & 12.25 pm</p>
+            </div>
+            
+            <div class="compliments">
+                <p>With best compliments from:</p>
+                <p>Deepika Krishna, Hishay Kumar</p>
+            </div>
+            
+            <div class="footer">
+                <p>We joyfully request the pleasure of your company</p>
+                <div class="signature">Dipin & Amrutha</div>
             </div>
         </div>
     </div>
