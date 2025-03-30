@@ -24,8 +24,8 @@
             background-color: var(--ivory);
             color: var(--dark);
             line-height: 1.8;
-            overflow-x: hidden;
-            background-image: url('https://lh3.googleusercontent.com/d/1fo1_vowFysHlI0En7Y44tyLwK8-eFZy-');
+            font-size: 1.2rem; /* Increased base font size */
+            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
@@ -33,30 +33,19 @@
             background-color: rgba(255, 255, 240, 0.9);
         }
         
-        .top-image, .bottom-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            object-position: center 85%; /* Adjust this to zoom out (higher % zooms out more) */
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transform: scale(1.1); /* Slightly zoom out */
-            overflow: visible; /* Hide the scaled overflow */
-        }
-        
         .image-container {
             width: 100%;
-            height: 300px;
-            overflow: hidden; /* Hide parts of image that scale beyond container */
+            height: 400px; /* Increased height */
+            overflow: hidden;
             position: relative;
         }
         
-        .image-container img {
+        .top-image, .bottom-image {
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            object-position: center 30%; /* Focus on center, adjust % to zoom out */
-            transition: transform 0.5s ease; /* Smooth hover effect */
+            object-fit: contain; /* Changed to contain to show full image */
+            object-position: center;
+            display: block;
         }
         
         .container {
@@ -67,24 +56,11 @@
             position: relative;
         }
         
-        .side-image {
-            width: 250px;
-            height: 600px;
-            object-fit: cover;
-            margin-right: 3rem;
-            border-radius: 5px;
-            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 2rem;
-            align-self: flex-start;
-        }
-        
         .content {
             flex: 1;
             padding-bottom: 3rem;
         }
         
-              
         header {
             text-align: center;
             padding: 3rem 0;
@@ -104,21 +80,21 @@
         }
         
         h1 {
-            font-size: 4rem;
+            font-size: 4.5rem; /* Increased size */
             font-weight: 300;
             letter-spacing: 2px;
             margin-bottom: 1rem;
         }
         
         .subtitle {
-            font-size: 1.5rem;
+            font-size: 1.8rem; /* Increased size */
             letter-spacing: 5px;
             color: var(--gold);
             margin-top: 1rem;
         }
         
         .couple-names {
-            font-size: 3.5rem;
+            font-size: 4rem; /* Increased size */
             margin: 2rem 0;
             line-height: 1.3;
         }
@@ -133,10 +109,11 @@
             margin-bottom: 2rem;
             border-radius: 5px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            font-size: 1.3rem; /* Increased size */
         }
         
         .date {
-            font-size: 3.5rem;
+            font-size: 4rem; /* Increased size */
             font-weight: 300;
             color: var(--red);
             line-height: 1;
@@ -148,11 +125,36 @@
             text-decoration: none;
             border-bottom: 1px dashed var(--gold);
             transition: all 0.3s ease;
+            font-size: 1.3rem; /* Increased size */
         }
         
-        .venue-link:hover {
-            color: var(--dark);
-            border-bottom-color: var(--red);
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 4rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+        }
+        
+        .countdown-box {
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        .countdown-number {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--red);
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
         }
         
         @media (max-width: 992px) {
@@ -161,32 +163,33 @@
                 padding: 0 1.5rem;
             }
             
-            .side-image {
-                width: 100%;
-                height: 300px;
-                margin: 0 0 2rem 0;
-                position: static;
-            }
-            
             h1 {
-                font-size: 3rem;
+                font-size: 3.5rem;
             }
             
             .couple-names {
-                font-size: 2.8rem;
+                font-size: 3rem;
+            }
+            
+            .countdown {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+            
+            .countdown-number {
+                font-size: 2.5rem;
             }
         }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Top Full-width Image -->
-    <img src="https://lh3.googleusercontent.com/d/1nu1G6gv2cmPA6p4sMUvhR8zhogn_aTFd" alt="Wedding decoration" class="top-image">
+    <!-- Top Image - Shows full image without cropping -->
+    <div class="image-container">
+        <img src="YOUR_TOP_IMAGE_URL" alt="Wedding decoration" class="top-image">
+    </div>
     
     <div class="container">
-        <!-- Side Image -->
-        <img src="https://lh3.googleusercontent.com/d/17LT0rMNL1y2x3nJIiI1I0tU9oM2_NLUo" alt="Couple portrait" class="side-image">
-        
         <div class="content">
             <header>
                 <h1>Dipin & Amrutha</h1>
@@ -217,15 +220,55 @@
                 </div>
             </div>
             
-            <!-- Parents info and other content would go here -->
+            <!-- Wedding Countdown Timer -->
+            <div class="countdown" id="countdown">
+                <div class="countdown-box">
+                    <div class="countdown-number" id="days">00</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-box">
+                    <div class="countdown-number" id="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
         </div>
     </div>
     
-    <!-- Bottom Full-width Image -->
-    <img src="https://lh3.googleusercontent.com/d/1R94egYgvwPWeDxsdOxNOSAr22v7ocPlz" alt="Wedding celebration" class="bottom-image">
+    <!-- Bottom Image - Shows full image without cropping -->
+    <div class="image-container">
+        <img src="YOUR_BOTTOM_IMAGE_URL" alt="Wedding celebration" class="bottom-image">
+    </div>
 
     <script>
-        // Simple animation for elements when they come into view
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date("April 28, 2025 12:05:00").getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerHTML = days.toString().padStart(2, "0");
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0");
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
+        }
+        
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+        
+        // Animation for elements when they come into view
         document.addEventListener('DOMContentLoaded', function() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -236,7 +279,7 @@
                 });
             }, { threshold: 0.1 });
             
-            document.querySelectorAll('.date-card, .side-image').forEach(el => {
+            document.querySelectorAll('.date-card').forEach(el => {
                 el.style.opacity = '0';
                 el.style.transform = 'translateY(20px)';
                 el.style.transition = 'all 0.6s ease-out';
