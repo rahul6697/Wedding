@@ -7,12 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
-            --ivory: #FFFFF0;
-            --gold: #D4AF37;
-            --soft-gold: #E8D9B5;
-            --dark: #2A2118;
-            --red: #A52A2A;
-            --rose: #E8C4C4;
+            --peach: #FFDAB9;
+            --dark-peach: #FFB347;
+            --soft-peach: #FFE4B5;
+            --dark: #5A3921;
+            --rose: #E75480;
+            --ivory: #FFF8F0;
         }
         
         * {
@@ -25,26 +25,13 @@
             color: var(--dark);
             line-height: 1.8;
             overflow-x: hidden;
-            /* Replace with your BG image URL */
-            background-image: url('https://lh3.googleusercontent.com/d/17LT0rMNL1y2x3nJIiI1I0tU9oM2_NLUo');
-            background-size: cover;
-            background-attachment: fixed;
-            background-position: center;
+            background-color: var(--peach);
+            font-size: 1.1rem;
         }
         
         .overlay {
-            background-color: rgba(255, 255, 240, 0.85);
+            background-color: rgba(255, 255, 240, 0.7);
             min-height: 100vh;
-        }
-        
-        .floating-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, rgba(255,240,240,0.3) 0%, rgba(255,255,255,0.4) 100%);
         }
         
         .container {
@@ -54,41 +41,63 @@
             position: relative;
         }
         
-        /* Date Cards - Using 'Cormorant Garamond' */
-        .date-card {
-            font-family: 'Cormorant Garamond', serif;
-        }
-        
-        .date-label {
-            font-weight: 600;
-            letter-spacing: 1px;
-        }
-        
-        .date {
-            font-weight: 300;
-        }
-        
-        /* Parents Info - Using 'Marcellus' */
-        .parents-info {
-            font-family: 'Marcellus', serif;
-            font-weight: 400;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Rest of your existing CSS remains the same */
-        header {
-            text-align: center;
-            padding: 5rem 0 3rem;
-            position: relative;
-        }
-        
+        /* Typography */
         h1 {
             font-family: 'Playfair Display', serif;
-            font-size: 4rem;
+            font-size: 4.5rem;
             font-weight: 400;
             margin-bottom: 1.5rem;
             color: var(--dark);
             letter-spacing: 1px;
+        }
+        
+        .date-card {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.2rem;
+        }
+        
+        .date {
+            font-size: 5.5rem;
+        }
+        
+        .parents-info {
+            font-family: 'Marcellus', serif;
+            font-size: 1.3rem;
+        }
+        
+        /* Countdown Timer */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .countdown-box {
+            text-align: center;
+            min-width: 100px;
+        }
+        
+        .countdown-number {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: var(--rose);
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0.5rem;
+        }
+        
+        /* Layout */
+        header {
+            text-align: center;
+            padding: 5rem 0 3rem;
+            position: relative;
         }
         
         .couple-names {
@@ -101,9 +110,17 @@
         
         .name {
             font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
+            font-size: 4rem;
             font-weight: 500;
             margin: 0 2rem;
+            color: var(--dark);
+        }
+        
+        .ampersand {
+            font-family: 'Alex Brush', cursive;
+            font-size: 4.5rem;
+            color: var(--rose);
+            transform: rotate(-15deg);
         }
         
         .date-section {
@@ -124,10 +141,28 @@
             transition: all 0.5s ease;
         }
         
-        .date {
-            font-size: 5rem;
-            line-height: 1;
-            margin: 1rem 0;
+        .date-label {
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--rose);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .month-year {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .time {
+            font-weight: 500;
+            color: var(--rose);
+            font-size: 1.4rem;
+        }
+        
+        .venue {
+            font-size: 1.3rem;
+            margin-top: 1rem;
         }
         
         .parents-info {
@@ -138,6 +173,7 @@
             background: rgba(255, 255, 255, 0.85);
             border-radius: 10px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            line-height: 2;
         }
         
         .footer {
@@ -148,12 +184,36 @@
         
         .signature {
             font-family: 'Alex Brush', cursive;
-            font-size: 3rem;
+            font-size: 3.5rem;
             margin-top: 2rem;
+            color: var(--dark);
         }
         
         @media (max-width: 768px) {
-            /* Responsive styles */
+            h1 {
+                font-size: 3rem;
+            }
+            
+            .name {
+                font-size: 2.8rem;
+            }
+            
+            .date-card {
+                width: 100%;
+                padding: 2rem;
+            }
+            
+            .date {
+                font-size: 4rem;
+            }
+            
+            .countdown {
+                gap: 1rem;
+            }
+            
+            .countdown-number {
+                font-size: 2.5rem;
+            }
         }
     </style>
     <!-- Font Imports -->
@@ -163,7 +223,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="floating-bg"></div>
     <div class="overlay">
         <div class="container">
             <header>
@@ -172,6 +231,26 @@
                     <div class="name">Dipin</div>
                     <span class="ampersand">&</span>
                     <div class="name">Amrutha</div>
+                </div>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown" id="countdown">
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="days">00</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="hours">00</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="minutes">00</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                    <div class="countdown-box">
+                        <div class="countdown-number" id="seconds">00</div>
+                        <div class="countdown-label">Seconds</div>
+                    </div>
                 </div>
             </header>
             
@@ -196,7 +275,7 @@
             </div>
             
             <div class="parents-info">
-                <p>Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
+                <p>S/o Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
                 <p>"K.C. House", P.O. Mullakkodi, Mayyil, Kamur</p>
                 <p>Ph: 9947065770, 9526935135</p>
                 <p>Grand Son of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar</p>
@@ -210,5 +289,28 @@
             </div>
         </div>
     </div>
+
+    <script>
+        // Countdown Timer
+        function updateCountdown() {
+            const weddingDate = new Date("April 28, 2025 12:05:00").getTime();
+            const now = new Date().getTime();
+            const distance = weddingDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("days").innerHTML = days.toString().padStart(2, "0");
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, "0");
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, "0");
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, "0");
+        }
+        
+        // Update every second
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
+    </script>
 </body>
 </html>
