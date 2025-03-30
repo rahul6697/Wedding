@@ -3,292 +3,248 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wedding Invitation</title>
-    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <title>Dipin & Amrutha | Wedding Celebration</title>
     <style>
         /* Base Styles */
+        :root {
+            --cream: #f8f4e9;
+            --gold: #c8a97e;
+            --dark: #3a3226;
+            --light-text: #7a6e5d;
+        }
+        
         body {
+            font-family: 'Cormorant Garamond', serif;
+            background-color: var(--cream);
+            color: var(--dark);
             margin: 0;
             padding: 0;
-            font-family: 'Cormorant Garamond', serif;
-            color: #4c3a32;
-            overflow-x: hidden;
-            height: 100%;
-        }
-
-        /* Background Image (Only visible at first) */
-        .background-image {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('https://lh3.googleusercontent.com/d/1axWniQoqPnTKjCiT1bK1VlcwLR0nZcIZ') no-repeat center center;
-            background-size: cover;
-            z-index: -1;
-        }
-
-        /* Content Container - Starts below viewport */
-        .content-wrapper {
-            position: relative;
-            min-height: 200vh; /* Extra space to enable scrolling */
-        }
-
-        .invitation-container {
-            position: absolute;
-            top: 100vh; /* Starts just below visible area */
-            left: 0;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-            min-height: 100vh;
-        }
-
-        /* Invitation Card */
-        .invitation {
-            background-color: rgba(255, 248, 240, 0.95);
-            border: 2px solid #98c1a4;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            padding: 40px;
-            max-width: 600px;
-            text-align: center;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-
-        /* Individual Elements */
-        .invitation > * {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-        }
-
-        /* Text Styles */
-        .invitation h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 60px;
-            margin: 0;
-            color: #3a5a40;
-            transition-delay: 0.2s;
-        }
-
-        .invitation h2 {
-            font-size: 40px;
-            font-family: 'Great Vibes', cursive;
-            color: #3a5a40;
-            margin: 10px 0 20px;
-            transition-delay: 0.3s;
-        }
-
-        .date, .day {
-            font-family: 'Playfair Display', serif;
-            color: #3a5a40;
-            font-weight: 700;
-            transition-delay: 0.4s;
-        }
-
-        .day {
-            font-size: 48px;
-            margin-bottom: 10px;
-        }
-
-        .date {
-            font-size: 40px;
-            margin: 20px 0;
-        }
-
-        .muhurtham {
-            font-family: 'Dancing Script', cursive;
-            font-size: 26px;
-            color: #3a5a40;
-            margin: 15px 0;
-            font-weight: 700;
-            transition-delay: 0.5s;
-        }
-
-        .venue {
-            font-size: 28px;
-            font-family: 'Dancing Script', cursive;
-            color: #3a5a40;
-            margin: 20px 0;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-            padding-right: 25px;
-            transition-delay: 0.6s;
-        }
-
-        .venue a {
-            color: #2d4a32;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-bottom: 2px dotted #98c1a4;
-            padding-bottom: 2px;
-        }
-
-        .venue a:hover {
-            color: #1e3a25;
-            border-bottom-style: solid;
-        }
-
-        .venue::after {
-            content: "📍";
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 20px;
-        }
-
-        .invitation-text {
-            font-family: 'Dancing Script', cursive;
-            font-size: 28px;
-            color: #3a5a40;
-            margin: 25px 0;
-            font-weight: 700;
             line-height: 1.6;
-            transition-delay: 0.7s;
         }
-
-        .countdown {
-            margin-top: 20px;
-            font-size: 22px;
-            color: #3a5a40;
-            font-family: 'Dancing Script', cursive;
-            font-weight: 700;
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .header::after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 1px;
+            background: var(--gold);
+            margin: 30px auto;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 5px;
             letter-spacing: 1px;
-            transition-delay: 0.8s;
         }
-
-        /* Animation Classes */
-        .show-invitation {
-            opacity: 1;
-            transform: translateY(0);
+        
+        .subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--light-text);
+            margin-bottom: 15px;
         }
-
-        .animate-element {
-            opacity: 1 !important;
-            transform: translateY(0) !important;
+        
+        /* Couple Section */
+        .couple-names {
+            font-size: 2rem;
+            text-align: center;
+            margin: 40px 0;
+            position: relative;
         }
-
-        /* Responsive Design */
+        
+        .couple-names span {
+            display: inline-block;
+            padding: 0 15px;
+        }
+        
+        .couple-names::before,
+        .couple-names::after {
+            content: "";
+            position: absolute;
+            top: 50%;
+            width: 30%;
+            height: 1px;
+            background: var(--gold);
+        }
+        
+        .couple-names::before {
+            left: 0;
+        }
+        
+        .couple-names::after {
+            right: 0;
+        }
+        
+        /* Details Sections */
+        .section {
+            margin: 50px 0;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+        
+        .section-content {
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+        
+        .highlight-box {
+            background-color: white;
+            padding: 30px;
+            margin: 40px 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .date-box {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            padding: 15px 25px;
+            margin: 20px 0;
+        }
+        
+        .day {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .month-year {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        
+        /* Parents Section */
+        .parents {
+            font-style: italic;
+            margin: 30px 0;
+            line-height: 1.8;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(200, 169, 126, 0.3);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            color: var(--light-text);
+        }
+        
+        /* Responsive */
         @media (max-width: 600px) {
-            .invitation {
-                padding: 25px;
+            h1 {
+                font-size: 2rem;
             }
-            .invitation h1 {
-                font-size: 40px;
+            
+            .couple-names {
+                font-size: 1.5rem;
             }
-            .invitation h2 {
-                font-size: 30px;
-            }
-            .date, .day {
-                font-size: 30px;
-            }
-            .muhurtham, .venue, .invitation-text {
-                font-size: 24px;
-            }
-            .countdown {
-                font-size: 20px;
-            }
-            .venue::after {
-                font-size: 18px;
+            
+            .couple-names::before,
+            .couple-names::after {
+                width: 20%;
             }
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Background Image (Shows First) -->
-    <div class="background-image"></div>
-
-    <!-- Content Wrapper -->
-    <div class="content-wrapper">
-        <div class="invitation-container">
-            <div class="invitation">
-                <h1>Amrutha Sreeraj</h1>
-                <h2>&</h2>
-                <h1>Dipin Krishna</h1>
-                <div class="day">Monday</div>
-                <div class="date">April 28, 2025</div>
-                
-                <div class="muhurtham">
-                    Muhurtham: 12:05 PM - 12:25 PM
-                </div>
-                
-                <div class="venue">
-                    <a href="https://maps.app.goo.gl/nAJQXbddyTW2hYai7?g_st=iw" target="_blank">
-                        Anjali Auditorium, Omallur, Pathanamthitta
-                    </a>
-                </div>
-                
-                <div class="invitation-text">You are cordially invited to celebrate our wedding day!</div>
-                
-                <div id="countdown" class="countdown">Loading countdown...</div>
+    <div class="container">
+        <div class="header">
+            <div class="subtitle">We cordially invite you to</div>
+            <h1>The Wedding Celebration</h1>
+        </div>
+        
+        <div class="couple-names">
+            <span>Dipin Krishna</span>
+        </div>
+        
+        <div class="section" style="margin-top: -20px;">
+            <div class="subtitle">Son of</div>
+            <div class="parents">
+                Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.<br>
+                "K.C. House", P.O. Mullakkodi, Mayyil, Kamur<br>
+                Ph: 9947065770, 9526935135
             </div>
         </div>
-    </div>
-
-    <script>
-        // Scroll Animation
-        function handleScroll() {
-            const invitation = document.querySelector('.invitation');
-            const elements = document.querySelectorAll('.invitation > *');
-            const scrollPosition = window.scrollY;
-            const screenHeight = window.innerHeight;
-            const triggerPosition = screenHeight * 0.7; // Trigger at 70% of viewport
-
-            if (scrollPosition > triggerPosition) {
-                // Show invitation container
-                invitation.classList.add('show-invitation');
-                
-                // Animate elements sequentially
-                elements.forEach((el, index) => {
-                    setTimeout(() => {
-                        el.classList.add('animate-element');
-                    }, index * 200); // 200ms delay between elements
-                });
-                
-                // Remove event listener after animation
-                window.removeEventListener('scroll', handleScroll);
-            }
-        }
-
-        // Initialize
-        window.addEventListener('scroll', handleScroll);
-        window.addEventListener('load', function() {
-            // Trigger scroll check on load in case already scrolled
-            handleScroll();
-        });
-
-        // Countdown Timer
-        function countdown() {
-            const weddingDate = new Date('April 28, 2025 12:05:00').getTime();
-            const now = new Date().getTime();
-            const difference = weddingDate - now;
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            const pad = (n) => n < 10 ? '0' + n : n;
+        
+        <div class="section">
+            <div class="subtitle">With</div>
+        </div>
+        
+        <div class="couple-names">
+            <span>Amrutha Sreeraj</span>
+        </div>
+        
+        <div class="section" style="margin-top: -20px;">
+            <div class="subtitle">Daughter of</div>
+            <div class="parents">
+                Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai<br>
+                Pezhumkattil-Tharakam, Thazham (P.O.),<br>
+                Malayalapuzha, Pathanamthitta
+            </div>
+        </div>
+        
+        <div class="highlight-box">
+            <div class="section">
+                <div class="section-title">Wedding Ceremony</div>
+                <div class="date-box">
+                    <div class="day">Monday, 28th April 2025</div>
+                    <div class="month-year">Muhurtham between 12.05 pm & 12.25 pm</div>
+                </div>
+                <div class="section-content">
+                    Anjali Auditorium, Omallur, Pathanamthitta
+                </div>
+            </div>
             
-            if (difference > 0) {
-                document.getElementById('countdown').innerHTML = 
-                    `${days}d ${pad(hours)}h ${pad(minutes)}m ${pad(seconds)}s until our wedding!`;
-            } else {
-                document.getElementById('countdown').innerHTML = 
-                    "The wedding has passed! Thank you for celebrating with us!";
-            }
-        }
-
-        setInterval(countdown, 1000);
-        countdown();
-    </script>
+            <div class="section">
+                <div class="section-title">Reception</div>
+                <div class="date-box">
+                    <div class="day">Thursday, 1st May 2025</div>
+                    <div class="month-year">5.00 PM to 9.00 PM</div>
+                </div>
+                <div class="section-content">
+                    Dream Palace Auditorium<br>
+                    Trichambaram, Taliparamba
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-content">
+                Grandson of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar
+            </div>
+        </div>
+        
+        <div class="footer">
+            <p>With best compliments from: Deepika Krishna, Hishay Kumar</p>
+            <p>Presents in blessings only</p>
+        </div>
+    </div>
 </body>
 </html>
