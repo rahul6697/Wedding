@@ -19,14 +19,22 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Montserrat', sans-serif;
         }
         
         body {
-            background-color: var(--ivory);
             color: var(--dark);
             line-height: 1.8;
             overflow-x: hidden;
+            /* Replace with your BG image URL */
+            background-image: url('https://lh3.googleusercontent.com/d/17LT0rMNL1y2x3nJIiI1I0tU9oM2_NLUo');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        
+        .overlay {
+            background-color: rgba(255, 255, 240, 0.85);
+            min-height: 100vh;
         }
         
         .floating-bg {
@@ -36,21 +44,7 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background: linear-gradient(135deg, rgba(255,240,240,0.8) 0%, rgba(255,255,255,0.9) 100%);
-            opacity: 0.8;
-        }
-        
-        .floating-element {
-            position: absolute;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 50%;
-            filter: blur(40px);
-            animation: float 15s infinite ease-in-out;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-50px) rotate(5deg); }
+            background: linear-gradient(135deg, rgba(255,240,240,0.3) 0%, rgba(255,255,255,0.4) 100%);
         }
         
         .container {
@@ -60,22 +54,32 @@
             position: relative;
         }
         
+        /* Date Cards - Using 'Cormorant Garamond' */
+        .date-card {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        
+        .date-label {
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .date {
+            font-weight: 300;
+        }
+        
+        /* Parents Info - Using 'Marcellus' */
+        .parents-info {
+            font-family: 'Marcellus', serif;
+            font-weight: 400;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Rest of your existing CSS remains the same */
         header {
             text-align: center;
             padding: 5rem 0 3rem;
             position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-image {
-            width: 100%;
-            max-height: 600px;
-            object-fit: cover;
-            border-radius: 10px;
-            margin-bottom: 3rem;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            opacity: 0;
-            animation: fadeIn 1s 0.2s forwards;
         }
         
         h1 {
@@ -85,18 +89,6 @@
             margin-bottom: 1.5rem;
             color: var(--dark);
             letter-spacing: 1px;
-            opacity: 0;
-            animation: fadeInUp 1s 0.3s forwards;
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 3rem;
-            opacity: 0;
-            animation: fadeInUp 1s 0.5s forwards;
         }
         
         .couple-names {
@@ -105,8 +97,6 @@
             align-items: center;
             flex-wrap: wrap;
             margin: 3rem 0;
-            opacity: 0;
-            animation: fadeIn 1s 0.7s forwards;
         }
         
         .name {
@@ -114,21 +104,6 @@
             font-size: 3.5rem;
             font-weight: 500;
             margin: 0 2rem;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-        
-        .name:hover {
-            transform: translateY(-5px);
-        }
-        
-        .ampersand {
-            font-family: 'Alex Brush', cursive;
-            font-size: 4rem;
-            color: var(--gold);
-            transform: rotate(-15deg);
-            display: inline-block;
-            margin: 0 1rem;
         }
         
         .date-section {
@@ -142,111 +117,17 @@
             width: 400px;
             margin: 1.5rem;
             padding: 3rem;
-            background: white;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
             text-align: center;
             transition: all 0.5s ease;
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s 0.9s forwards;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .date-card-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 150px;
-            object-fit: cover;
-            opacity: 0.3;
-            z-index: 0;
-        }
-        
-        .date-card-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .date-card:hover {
-            transform: translateY(-10px) !important;
-            box-shadow: 0 25px 45px rgba(0,0,0,0.1);
-        }
-        
-        .date-card:nth-child(2) {
-            animation-delay: 1.1s;
-        }
-        
-        .date-label {
-            font-size: 1.3rem;
-            color: var(--red);
-            letter-spacing: 2px;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            font-weight: 500;
         }
         
         .date {
-            font-family: 'Playfair Display', serif;
             font-size: 5rem;
-            font-weight: 300;
             line-height: 1;
-            color: var(--dark);
             margin: 1rem 0;
-        }
-        
-        .month-year {
-            font-size: 1.5rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            color: var(--dark);
-            margin-bottom: 2rem;
-        }
-        
-        .details {
-            margin: 2rem 0;
-        }
-        
-        .time {
-            font-size: 1.3rem;
-            color: var(--red);
-            font-weight: 500;
-            margin-bottom: 1rem;
-        }
-        
-        .venue {
-            font-size: 1.2rem;
-            line-height: 1.6;
-        }
-        
-        .gallery-section {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 2rem;
-            margin: 5rem 0;
-        }
-        
-        .gallery-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-            border-radius: 10px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: all 0.5s ease;
-            opacity: 0;
-            transform: scale(0.95);
-            animation: fadeIn 0.8s 1.3s forwards;
-        }
-        
-        .gallery-image:hover {
-            transform: scale(1.02);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
-        }
-        
-        .gallery-image:nth-child(2) {
-            animation-delay: 1.5s;
         }
         
         .parents-info {
@@ -254,211 +135,80 @@
             margin: 0 auto;
             padding: 3rem;
             text-align: center;
-            opacity: 0;
-            animation: fadeIn 1s 1.7s forwards;
-        }
-        
-        .parents-info p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
         }
         
         .footer {
             text-align: center;
             margin-top: 5rem;
             padding: 3rem 0;
-            position: relative;
-            opacity: 0;
-            animation: fadeIn 1s 1.9s forwards;
-        }
-        
-        .footer-image {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            margin-bottom: 3rem;
-            border-radius: 10px;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            opacity: 0;
-            animation: fadeIn 1s 2.1s forwards;
-        }
-        
-        .footer:before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
         
         .signature {
             font-family: 'Alex Brush', cursive;
             font-size: 3rem;
             margin-top: 2rem;
-            color: var(--dark);
-            line-height: 1;
-        }
-        
-        @keyframes fadeIn {
-            to { 
-                opacity: 1;
-                transform: scale(1);
-            }
-        }
-        
-        @keyframes fadeInUp {
-            to { 
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         
         @media (max-width: 768px) {
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .name {
-                font-size: 2.5rem;
-                margin: 0 1rem;
-            }
-            
-            .ampersand {
-                font-size: 3rem;
-            }
-            
-            .date-card {
-                width: 100%;
-                margin: 1rem 0;
-                padding: 2rem;
-            }
-            
-            .date {
-                font-size: 4rem;
-            }
-            
-            .gallery-section {
-                grid-template-columns: 1fr;
-            }
-            
-            .signature {
-                font-size: 2.5rem;
-            }
+            /* Responsive styles */
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <!-- Font Imports -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="floating-bg">
-        <div class="floating-element" style="width: 300px; height: 300px; top: 10%; left: 5%; animation-delay: 0s;"></div>
-        <div class="floating-element" style="width: 400px; height: 400px; top: 60%; left: 70%; animation-delay: 2s;"></div>
-        <div class="floating-element" style="width: 200px; height: 200px; top: 30%; left: 40%; animation-delay: 4s;"></div>
-        <div class="floating-element" style="width: 350px; height: 350px; top: 70%; left: 20%; animation-delay: 1s;"></div>
-    </div>
-    
-    <div class="container">
-        <header>
-            <div class="header-overlay"></div>
-            <!-- Hero Image (Replace with your image 1) -->
-            <img src="https://lh3.googleusercontent.com/d/1n1njFxVKxTuol0ZQ1ooZkdx8Y0-pWzHm" alt="Dipin & Amrutha" class="hero-image">
+    <div class="floating-bg"></div>
+    <div class="overlay">
+        <div class="container">
+            <header>
+                <h1>Wedding Celebration</h1>
+                <div class="couple-names">
+                    <div class="name">Dipin</div>
+                    <span class="ampersand">&</span>
+                    <div class="name">Amrutha</div>
+                </div>
+            </header>
             
-            <h1>Wedding Celebration</h1>
-            <p class="subtitle">Save the Date</p>
-            
-            <div class="couple-names">
-                <div class="name">Dipin</div>
-                <div class="ampersand">&</div>
-                <div class="name">Amrutha</div>
-            </div>
-        </header>
-        
-        <div class="date-section">
-            <div class="date-card">
-                <!-- Date Card Background Image (Replace with your image 2) -->
-                <img src="https://lh3.googleusercontent.com/d/1fo1_vowFysHlI0En7Y44tyLwK8-eFZy-" alt="Wedding Ceremony" class="date-card-image">
-                <div class="date-card-content">
+            <div class="date-section">
+                <div class="date-card">
                     <div class="date-label">Wedding Ceremony</div>
                     <div class="day">Monday</div>
                     <div class="date">28</div>
                     <div class="month-year">April 2025</div>
-                    <div class="details">
-                        <div class="time">Muhurtham: 12.05 pm - 12.25 pm</div>
-                        <div class="venue">Anjali Auditorium<br>Omallur, Pathanamthitta</div>
-                    </div>
+                    <div class="time">Muhurtham: 12.05 pm - 12.25 pm</div>
+                    <div class="venue">Anjali Auditorium, Omallur</div>
                 </div>
-            </div>
-            
-            <div class="date-card">
-                <!-- Date Card Background Image (Replace with your image 3) -->
-                <img src="https://lh3.googleusercontent.com/d/1x9L1BstdGT7Ihhh7K3tbEcALxihy6ztN" alt="Reception" class="date-card-image">
-                <div class="date-card-content">
+                
+                <div class="date-card">
                     <div class="date-label">Reception</div>
                     <div class="day">Thursday</div>
                     <div class="date">1</div>
                     <div class="month-year">May 2025</div>
-                    <div class="details">
-                        <div class="time">5.00 PM to 9.00 PM</div>
-                        <div class="venue">Dream Palace Auditorium<br>Trichambaram Taliparamba</div>
-                    </div>
+                    <div class="time">5.00 PM to 9.00 PM</div>
+                    <div class="venue">Dream Palace Auditorium</div>
                 </div>
             </div>
-        </div>
-        
-             
-        <div class="parents-info">
-            <p>S/o Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
-            <p>"K.C. House", P.O. Mullakkodi, Mayyil, Kamur</p>
-            <p>D/o. Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai</p>
-            <p>Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta</p>
-        </div>
-        
-        <div class="footer">
-            <!-- Footer Image (Optional - can remove if you only have 4 images) -->
-            <img src="https://lh3.googleusercontent.com/d/1B2aylOOg9Mzse90K1e00T-RFI11iw1HB" alt="Together Forever" class="footer-image">
-            <p>We joyfully request the pleasure of your company</p>
-            <div class="signature">Dipin & Amrutha</div>
+            
+            <div class="parents-info">
+                <p>Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
+                <p>"K.C. House", P.O. Mullakkodi, Mayyil, Kamur</p>
+                <p>Ph: 9947065770, 9526935135</p>
+                <p>Grand Son of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar</p>
+                <p>D/o. Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai</p>
+                <p>Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta</p>
+            </div>
+            
+            <div class="footer">
+                <p>We joyfully request the pleasure of your company</p>
+                <div class="signature">Dipin & Amrutha</div>
+            </div>
         </div>
     </div>
-
-    <script>
-        // Additional interactive animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const names = document.querySelectorAll('.name');
-            names.forEach(name => {
-                name.addEventListener('mouseenter', () => {
-                    name.style.transform = 'translateY(-5px)';
-                });
-                name.addEventListener('mouseleave', () => {
-                    name.style.transform = 'translateY(0)';
-                });
-            });
-            
-            // Scroll animations
-            const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.date-card, .gallery-image, .parents-info, .footer, .footer-image');
-                elements.forEach(el => {
-                    const elementPosition = el.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementPosition < windowHeight - 100) {
-                        el.style.opacity = '1';
-                        if (el.classList.contains('gallery-image')) {
-                            el.style.transform = 'scale(1)';
-                        } else {
-                            el.style.transform = 'translateY(0)';
-                        }
-                    }
-                });
-            };
-            
-            window.addEventListener('scroll', animateOnScroll);
-            animateOnScroll(); // Initialize
-        });
-    </script>
 </body>
 </html>
