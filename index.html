@@ -33,12 +33,30 @@
             background-color: rgba(255, 255, 240, 0.9);
         }
         
-        .top-image {
+        .top-image, .bottom-image {
             width: 100%;
             height: 300px;
             object-fit: cover;
+            object-position: center 30%; /* Adjust this to zoom out (higher % zooms out more) */
             margin-bottom: 2rem;
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transform: scale(1.1); /* Slightly zoom out */
+            overflow: hidden; /* Hide the scaled overflow */
+        }
+        
+        .image-container {
+            width: 100%;
+            height: 300px;
+            overflow: hidden; /* Hide parts of image that scale beyond container */
+            position: relative;
+        }
+        
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%; /* Focus on center, adjust % to zoom out */
+            transition: transform 0.5s ease; /* Smooth hover effect */
         }
         
         .container {
@@ -71,7 +89,7 @@
             height: 300px;
             object-fit: cover;
             margin-top: 3rem;
-            box-shadow: 0 -5px 10px rgba(0,0,0,0.1);
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.1);
         }
         
         header {
