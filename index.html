@@ -67,14 +67,15 @@
             overflow: hidden;
         }
         
-        .header-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .hero-image {
             width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 100%);
-            z-index: -1;
+            max-height: 600px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 3rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            opacity: 0;
+            animation: fadeIn 1s 0.2s forwards;
         }
         
         h1 {
@@ -149,6 +150,24 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeInUp 0.8s 0.9s forwards;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .date-card-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            opacity: 0.3;
+            z-index: 0;
+        }
+        
+        .date-card-content {
+            position: relative;
+            z-index: 1;
         }
         
         .date-card:hover {
@@ -202,13 +221,41 @@
             line-height: 1.6;
         }
         
+        .gallery-section {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 5rem 0;
+        }
+        
+        .gallery-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: scale(0.95);
+            animation: fadeIn 0.8s 1.3s forwards;
+        }
+        
+        .gallery-image:hover {
+            transform: scale(1.02);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .gallery-image:nth-child(2) {
+            animation-delay: 1.5s;
+        }
+        
         .parents-info {
             max-width: 800px;
             margin: 0 auto;
             padding: 3rem;
             text-align: center;
             opacity: 0;
-            animation: fadeIn 1s 1.3s forwards;
+            animation: fadeIn 1s 1.7s forwards;
         }
         
         .parents-info p {
@@ -222,7 +269,18 @@
             padding: 3rem 0;
             position: relative;
             opacity: 0;
-            animation: fadeIn 1s 1.5s forwards;
+            animation: fadeIn 1s 1.9s forwards;
+        }
+        
+        .footer-image {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            margin-bottom: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            opacity: 0;
+            animation: fadeIn 1s 2.1s forwards;
         }
         
         .footer:before {
@@ -245,7 +303,10 @@
         }
         
         @keyframes fadeIn {
-            to { opacity: 1; }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
         }
         
         @keyframes fadeInUp {
@@ -279,6 +340,10 @@
                 font-size: 4rem;
             }
             
+            .gallery-section {
+                grid-template-columns: 1fr;
+            }
+            
             .signature {
                 font-size: 2.5rem;
             }
@@ -299,6 +364,9 @@
     <div class="container">
         <header>
             <div class="header-overlay"></div>
+            <!-- Hero Image (Replace with your image 1) -->
+            <img src="https://example.com/your-image1.jpg" alt="Dipin & Amrutha" class="hero-image">
+            
             <h1>Wedding Celebration</h1>
             <p class="subtitle">Save the Date</p>
             
@@ -311,38 +379,52 @@
         
         <div class="date-section">
             <div class="date-card">
-                <div class="date-label">Wedding Ceremony</div>
-                <div class="day">Monday</div>
-                <div class="date">28</div>
-                <div class="month-year">April 2025</div>
-                <div class="details">
-                    <div class="time">Muhurtham: 12.05 pm - 12.25 pm</div>
-                    <div class="venue">Anjali Auditorium<br>Omallur, Pathanamthitta</div>
+                <!-- Date Card Background Image (Replace with your image 2) -->
+                <img src="https://example.com/your-image2.jpg" alt="Wedding Ceremony" class="date-card-image">
+                <div class="date-card-content">
+                    <div class="date-label">Wedding Ceremony</div>
+                    <div class="day">Monday</div>
+                    <div class="date">28</div>
+                    <div class="month-year">April 2025</div>
+                    <div class="details">
+                        <div class="time">Muhurtham: 12.05 pm - 12.25 pm</div>
+                        <div class="venue">Anjali Auditorium<br>Omallur, Pathanamthitta</div>
+                    </div>
                 </div>
             </div>
             
             <div class="date-card">
-                <div class="date-label">Reception</div>
-                <div class="day">Thursday</div>
-                <div class="date">1</div>
-                <div class="month-year">May 2025</div>
-                <div class="details">
-                    <div class="time">5.00 PM to 9.00 PM</div>
-                    <div class="venue">Dream Palace Auditorium<br>Trichambaram Taliparamba</div>
+                <!-- Date Card Background Image (Replace with your image 3) -->
+                <img src="https://example.com/your-image3.jpg" alt="Reception" class="date-card-image">
+                <div class="date-card-content">
+                    <div class="date-label">Reception</div>
+                    <div class="day">Thursday</div>
+                    <div class="date">1</div>
+                    <div class="month-year">May 2025</div>
+                    <div class="details">
+                        <div class="time">5.00 PM to 9.00 PM</div>
+                        <div class="venue">Dream Palace Auditorium<br>Trichambaram Taliparamba</div>
+                    </div>
                 </div>
             </div>
         </div>
         
+        <!-- Gallery Section (Replace with your image 4) -->
+        <div class="gallery-section">
+            <img src="https://example.com/your-image4.jpg" alt="Gallery 1" class="gallery-image">
+            <img src="https://example.com/your-image5.jpg" alt="Gallery 2" class="gallery-image">
+        </div>
+        
         <div class="parents-info">
-            <p>Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
+            <p>S/o Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
             <p>"K.C. House", P.O. Mullakkodi, Mayyil, Kamur</p>
-            <p>Ph : 9947065770, 9526935135</p>
-            <p>Grand Son of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar</p>
             <p>D/o. Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai</p>
             <p>Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta</p>
         </div>
         
         <div class="footer">
+            <!-- Footer Image (Optional - can remove if you only have 4 images) -->
+            <img src="https://example.com/your-image6.jpg" alt="Together Forever" class="footer-image">
             <p>We joyfully request the pleasure of your company</p>
             <div class="signature">Dipin & Amrutha</div>
         </div>
@@ -363,14 +445,18 @@
             
             // Scroll animations
             const animateOnScroll = () => {
-                const elements = document.querySelectorAll('.date-card, .parents-info, .footer');
+                const elements = document.querySelectorAll('.date-card, .gallery-image, .parents-info, .footer, .footer-image');
                 elements.forEach(el => {
                     const elementPosition = el.getBoundingClientRect().top;
                     const windowHeight = window.innerHeight;
                     
                     if (elementPosition < windowHeight - 100) {
                         el.style.opacity = '1';
-                        el.style.transform = 'translateY(0)';
+                        if (el.classList.contains('gallery-image')) {
+                            el.style.transform = 'scale(1)';
+                        } else {
+                            el.style.transform = 'translateY(0)';
+                        }
                     }
                 });
             };
