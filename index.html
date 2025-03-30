@@ -100,13 +100,43 @@
             margin: 2rem auto;
         }
         
+        .date-container {
+            display: flex;
+            justify-content: space-around;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+        
         .date-box {
             text-align: center;
-            margin: 2.5rem 0;
+            margin: 1rem;
+            flex: 1;
+            min-width: 250px;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .date-box.wedding {
+            border-top: 3px solid var(--gold);
+        }
+        
+        .date-box.reception {
+            border-top: 3px solid var(--red);
+        }
+        
+        .date-label {
+            font-size: 1.5rem;
+            color: var(--dark);
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            font-weight: 500;
         }
         
         .day {
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: var(--red);
             letter-spacing: 3px;
             text-transform: uppercase;
@@ -117,53 +147,27 @@
             font-weight: 300;
             line-height: 1;
             color: var(--dark);
+            margin: 0.5rem 0;
         }
         
         .month-year {
             font-size: 1.5rem;
             letter-spacing: 5px;
             text-transform: uppercase;
-            margin-top: -0.5rem;
             color: var(--dark);
-        }
-        
-        .details {
-            margin: 2rem 0;
-            text-align: center;
-        }
-        
-        .details p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
         }
         
         .time {
             font-size: 1.3rem;
-            margin: 1.5rem 0;
+            margin: 1rem 0;
             color: var(--red);
+            font-weight: 500;
         }
         
         .venue {
-            font-size: 1.4rem;
-            margin: 2rem 0;
+            font-size: 1.3rem;
+            margin: 1.5rem 0;
             line-height: 1.6;
-        }
-        
-        .ceremony {
-            margin: 3rem 0;
-            padding: 2rem 0;
-            border-top: 1px dashed var(--soft-gold);
-            border-bottom: 1px dashed var(--soft-gold);
-        }
-        
-        .ceremony p {
-            margin-bottom: 1rem;
-        }
-        
-        .compliments {
-            margin-top: 3rem;
-            font-style: italic;
-            text-align: center;
         }
         
         .footer {
@@ -214,6 +218,14 @@
                 font-size: 1.5rem;
             }
             
+            .date-container {
+                flex-direction: column;
+            }
+            
+            .date-box {
+                margin: 1rem 0;
+            }
+            
             .date {
                 font-size: 3rem;
             }
@@ -230,7 +242,7 @@
 <body>
     <div class="container">
         <div class="invitation-card">
-            <h1>Wedding Reception</h1>
+            <h1>Wedding Celebration</h1>
             
             <div class="parents">
                 <p>Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
@@ -252,26 +264,24 @@
                 <p>Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta</p>
             </div>
             
-            <div class="date-box">
-                <div class="day">Thursday</div>
-                <div class="date">1</div>
-                <div class="month-year">May 2025</div>
-            </div>
-            
-            <div class="details">
-                <p class="time">Reception from 5.00 PM to 9.00 PM</p>
-                <p class="venue">Dream Palace Auditorium<br>Trichambaram Taliparamba</p>
-            </div>
-            
-            <div class="ceremony">
-                <p>Wedding ceremony to be solemnised on Monday 28th April 2025</p>
-                <p>At Anjali Auditorium, Omallur, Pathanamthitta</p>
-                <p>Muhurtham between 12.05 pm & 12.25 pm</p>
-            </div>
-            
-            <div class="compliments">
-                <p>With best compliments from:</p>
-                <p>Deepika Krishna, Hishay Kumar</p>
+            <div class="date-container">
+                <div class="date-box wedding">
+                    <div class="date-label">Wedding Ceremony</div>
+                    <div class="day">Monday</div>
+                    <div class="date">28</div>
+                    <div class="month-year">April 2025</div>
+                    <div class="time">Muhurtham: 12.05 pm - 12.25 pm</div>
+                    <div class="venue">Anjali Auditorium<br>Omallur, Pathanamthitta</div>
+                </div>
+                
+                <div class="date-box reception">
+                    <div class="date-label">Reception</div>
+                    <div class="day">Thursday</div>
+                    <div class="date">1</div>
+                    <div class="month-year">May 2025</div>
+                    <div class="time">5.00 PM to 9.00 PM</div>
+                    <div class="venue">Dream Palace Auditorium<br>Trichambaram Taliparamba</div>
+                </div>
             </div>
             
             <div class="footer">
