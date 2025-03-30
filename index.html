@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dipin & Amrutha | Wedding Celebration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         :root {
             --ivory: #FFFFF0;
@@ -11,13 +12,14 @@
             --soft-gold: #E8D9B5;
             --dark: #2A2118;
             --red: #A52A2A;
+            --rose: #E8C4C4;
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Montserrat', sans-serif;
         }
         
         body {
@@ -25,270 +27,357 @@
             color: var(--dark);
             line-height: 1.8;
             overflow-x: hidden;
-            background-image: url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
-            background-color: rgba(255, 255, 240, 0.9);
+        }
+        
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, rgba(255,240,240,0.8) 0%, rgba(255,255,255,0.9) 100%);
+            opacity: 0.8;
+        }
+        
+        .floating-element {
+            position: absolute;
+            background: rgba(212, 175, 55, 0.1);
+            border-radius: 50%;
+            filter: blur(40px);
+            animation: float 15s infinite ease-in-out;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-50px) rotate(5deg); }
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
             position: relative;
         }
         
-        .invitation-card {
-            background-color: rgba(255, 255, 255, 0.92);
-            padding: 3rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--soft-gold);
-            margin: 3rem 0;
+        header {
+            text-align: center;
+            padding: 5rem 0 3rem;
             position: relative;
             overflow: hidden;
         }
         
-        .invitation-card:before {
-            content: "";
+        .header-overlay {
             position: absolute;
             top: 0;
             left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--red), var(--gold));
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9) 100%);
+            z-index: -1;
         }
         
         h1 {
-            font-size: 2.8rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
             font-weight: 400;
-            text-align: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--dark);
             letter-spacing: 1px;
+            opacity: 0;
+            animation: fadeInUp 1s 0.3s forwards;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s 0.5s forwards;
         }
         
         .couple-names {
-            font-size: 3.5rem;
-            text-align: center;
-            margin: 2rem 0;
-            line-height: 1.2;
-            font-weight: 500;
-            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin: 3rem 0;
+            opacity: 0;
+            animation: fadeIn 1s 0.7s forwards;
         }
         
-        .couple-names span {
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 500;
+            margin: 0 2rem;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .name:hover {
+            transform: translateY(-5px);
+        }
+        
+        .ampersand {
+            font-family: 'Alex Brush', cursive;
+            font-size: 4rem;
+            color: var(--gold);
+            transform: rotate(-15deg);
             display: inline-block;
             margin: 0 1rem;
-            font-size: 2rem;
-            color: var(--gold);
-            vertical-align: middle;
         }
         
-        .parents {
-            text-align: center;
-            margin: 2rem 0;
-            font-size: 1.2rem;
-            color: var(--dark);
-        }
-        
-        .divider {
-            width: 150px;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent);
-            margin: 2rem auto;
-        }
-        
-        .date-container {
+        .date-section {
             display: flex;
-            justify-content: space-around;
-            margin: 3rem 0;
+            justify-content: center;
+            margin: 5rem 0;
             flex-wrap: wrap;
         }
         
-        .date-box {
+        .date-card {
+            width: 400px;
+            margin: 1.5rem;
+            padding: 3rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.05);
             text-align: center;
-            margin: 1rem;
-            flex: 1;
-            min-width: 250px;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s 0.9s forwards;
         }
         
-        .date-box.wedding {
-            border-top: 3px solid var(--gold);
+        .date-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 25px 45px rgba(0,0,0,0.1);
         }
         
-        .date-box.reception {
-            border-top: 3px solid var(--red);
+        .date-card:nth-child(2) {
+            animation-delay: 1.1s;
         }
         
         .date-label {
-            font-size: 1.5rem;
-            color: var(--dark);
+            font-size: 1.3rem;
+            color: var(--red);
             letter-spacing: 2px;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             text-transform: uppercase;
             font-weight: 500;
         }
         
-        .day {
-            font-size: 1.5rem;
-            color: var(--red);
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-        
         .date {
-            font-size: 4rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 5rem;
             font-weight: 300;
             line-height: 1;
             color: var(--dark);
-            margin: 0.5rem 0;
+            margin: 1rem 0;
         }
         
         .month-year {
             font-size: 1.5rem;
-            letter-spacing: 5px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             color: var(--dark);
+            margin-bottom: 2rem;
+        }
+        
+        .details {
+            margin: 2rem 0;
         }
         
         .time {
             font-size: 1.3rem;
-            margin: 1rem 0;
             color: var(--red);
             font-weight: 500;
+            margin-bottom: 1rem;
         }
         
         .venue {
-            font-size: 1.3rem;
-            margin: 1.5rem 0;
+            font-size: 1.2rem;
             line-height: 1.6;
+        }
+        
+        .parents-info {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 3rem;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s 1.3s forwards;
+        }
+        
+        .parents-info p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
         }
         
         .footer {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 2rem;
-            border-top: 1px solid var(--soft-gold);
-            font-size: 1.1rem;
+            margin-top: 5rem;
+            padding: 3rem 0;
             position: relative;
+            opacity: 0;
+            animation: fadeIn 1s 1.5s forwards;
         }
         
         .footer:before {
-            content: "♥";
-            color: var(--red);
-            font-size: 1.2rem;
+            content: "";
             position: absolute;
             top: 0;
             left: 50%;
             transform: translateX(-50%);
+            width: 100px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
         
         .signature {
             font-family: 'Alex Brush', cursive;
-            font-size: 2.5rem;
-            margin-top: 1rem;
+            font-size: 3rem;
+            margin-top: 2rem;
             color: var(--dark);
             line-height: 1;
         }
         
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
         @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            .invitation-card {
-                padding: 2rem 1.5rem;
-            }
-            
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
             
-            .couple-names {
-                font-size: 2.2rem;
+            .name {
+                font-size: 2.5rem;
+                margin: 0 1rem;
             }
             
-            .couple-names span {
-                font-size: 1.5rem;
-            }
-            
-            .date-container {
-                flex-direction: column;
-            }
-            
-            .date-box {
-                margin: 1rem 0;
-            }
-            
-            .date {
+            .ampersand {
                 font-size: 3rem;
             }
             
+            .date-card {
+                width: 100%;
+                margin: 1rem 0;
+                padding: 2rem;
+            }
+            
+            .date {
+                font-size: 4rem;
+            }
+            
             .signature {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="floating-bg">
+        <div class="floating-element" style="width: 300px; height: 300px; top: 10%; left: 5%; animation-delay: 0s;"></div>
+        <div class="floating-element" style="width: 400px; height: 400px; top: 60%; left: 70%; animation-delay: 2s;"></div>
+        <div class="floating-element" style="width: 200px; height: 200px; top: 30%; left: 40%; animation-delay: 4s;"></div>
+        <div class="floating-element" style="width: 350px; height: 350px; top: 70%; left: 20%; animation-delay: 1s;"></div>
+    </div>
+    
     <div class="container">
-        <div class="invitation-card">
+        <header>
+            <div class="header-overlay"></div>
             <h1>Wedding Celebration</h1>
-            
-            <div class="parents">
-                <p>Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
-                <p>"K.C. House", P.O. Mullakkodi, Mayyil, Kamur</p>
-                <p>Ph : 9947065770, 9526935135</p>
-            </div>
-            
-            <div class="divider"></div>
+            <p class="subtitle">Save the Date</p>
             
             <div class="couple-names">
-                Dipin Krishna
-                <span>&</span>
-                Amrutha Sreeraj
+                <div class="name">Dipin</div>
+                <div class="ampersand">&</div>
+                <div class="name">Amrutha</div>
             </div>
-            
-            <div class="parents">
-                <p>Grand Son of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar</p>
-                <p>D/o. Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai</p>
-                <p>Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta</p>
-            </div>
-            
-            <div class="date-container">
-                <div class="date-box wedding">
-                    <div class="date-label">Wedding Ceremony</div>
-                    <div class="day">Monday</div>
-                    <div class="date">28</div>
-                    <div class="month-year">April 2025</div>
+        </header>
+        
+        <div class="date-section">
+            <div class="date-card">
+                <div class="date-label">Wedding Ceremony</div>
+                <div class="day">Monday</div>
+                <div class="date">28</div>
+                <div class="month-year">April 2025</div>
+                <div class="details">
                     <div class="time">Muhurtham: 12.05 pm - 12.25 pm</div>
                     <div class="venue">Anjali Auditorium<br>Omallur, Pathanamthitta</div>
                 </div>
-                
-                <div class="date-box reception">
-                    <div class="date-label">Reception</div>
-                    <div class="day">Thursday</div>
-                    <div class="date">1</div>
-                    <div class="month-year">May 2025</div>
+            </div>
+            
+            <div class="date-card">
+                <div class="date-label">Reception</div>
+                <div class="day">Thursday</div>
+                <div class="date">1</div>
+                <div class="month-year">May 2025</div>
+                <div class="details">
                     <div class="time">5.00 PM to 9.00 PM</div>
                     <div class="venue">Dream Palace Auditorium<br>Trichambaram Taliparamba</div>
                 </div>
             </div>
-            
-            <div class="footer">
-                <p>We joyfully request the pleasure of your company</p>
-                <div class="signature">Dipin & Amrutha</div>
-            </div>
+        </div>
+        
+        <div class="parents-info">
+            <p>Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
+            <p>"K.C. House", P.O. Mullakkodi, Mayyil, Kamur</p>
+            <p>Ph : 9947065770, 9526935135</p>
+            <p>Grand Son of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar</p>
+            <p>D/o. Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai</p>
+            <p>Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta</p>
+        </div>
+        
+        <div class="footer">
+            <p>We joyfully request the pleasure of your company</p>
+            <div class="signature">Dipin & Amrutha</div>
         </div>
     </div>
+
+    <script>
+        // Additional interactive animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const names = document.querySelectorAll('.name');
+            names.forEach(name => {
+                name.addEventListener('mouseenter', () => {
+                    name.style.transform = 'translateY(-5px)';
+                });
+                name.addEventListener('mouseleave', () => {
+                    name.style.transform = 'translateY(0)';
+                });
+            });
+            
+            // Scroll animations
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.date-card, .parents-info, .footer');
+                elements.forEach(el => {
+                    const elementPosition = el.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (elementPosition < windowHeight - 100) {
+                        el.style.opacity = '1';
+                        el.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Initialize
+        });
+    </script>
 </body>
 </html>
