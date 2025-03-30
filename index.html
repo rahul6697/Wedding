@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dipin & Amrutha | Our Love Story</title>
+    <title>Dipin & Amrutha | Our Wedding</title>
     <style>
-        /* Modern Romantic Style */
+        /* Modern Aesthetic Style */
         :root {
-            --blush: #F8E5E5;
-            --deep-red: #A83333;
-            --soft-brown: #D7CEC7;
-            --dark: #3A3226;
-            --gold: #D4AF37;
+            --ivory: #FFFFF0;
+            --dusty-rose: #D4B8B8;
+            --sage: #B8C4B8;
+            --taupe: #C4B8A8;
+            --slate: #5A5A5A;
         }
         
         body {
-            font-family: 'Marcellus', serif;
-            background-color: var(--blush);
-            color: var(--dark);
+            font-family: 'Cormorant', serif;
+            background-color: var(--ivory);
+            color: var(--slate);
             margin: 0;
             padding: 0;
             line-height: 1.8;
@@ -32,14 +32,13 @@
         /* Hero Section */
         .hero {
             position: relative;
-            height: 70vh;
+            height: 80vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), 
-                        url('https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            color: white;
+            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), 
+                        url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
             margin-bottom: 60px;
         }
         
@@ -50,132 +49,126 @@
         }
         
         .names {
-            font-size: 4.5rem;
-            font-weight: 400;
+            font-size: 4rem;
+            font-weight: 300;
             margin: 0;
             line-height: 1.1;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            letter-spacing: 2px;
+            color: var(--slate);
+            font-family: 'Playfair Display', serif;
         }
         
         .date {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            margin: 20px 0;
+            font-size: 1rem;
+            letter-spacing: 4px;
+            margin: 30px 0;
             text-transform: uppercase;
+            color: var(--slate);
         }
         
         .divider {
-            width: 100px;
-            height: 2px;
-            background: var(--gold);
+            width: 80px;
+            height: 1px;
+            background: var(--dusty-rose);
             margin: 30px auto;
+            opacity: 0.7;
         }
         
         /* Couple Photos Section */
         .couple-photos {
             display: flex;
             justify-content: center;
-            gap: 30px;
-            margin: 60px auto;
+            gap: 40px;
+            margin: 80px auto;
             max-width: 900px;
         }
         
         .photo-placeholder {
-            width: 300px;
-            height: 400px;
-            background-color: var(--soft-brown);
+            width: 280px;
+            height: 380px;
+            background-color: var(--taupe);
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--deep-red);
+            color: var(--slate);
             font-family: 'Montserrat', sans-serif;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            transition: all 0.4s ease;
         }
         
         .photo-placeholder:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
         }
         
         .photo-placeholder::after {
             content: "Add Photo";
             position: absolute;
-            font-size: 1.2rem;
+            font-size: 1rem;
+            letter-spacing: 2px;
         }
         
         /* Details Section */
         .details {
             background: white;
-            padding: 60px;
+            padding: 60px 40px;
             margin: 60px 0;
             position: relative;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.05);
-        }
-        
-        .details::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 5px;
-            background: linear-gradient(90deg, var(--gold), var(--deep-red));
         }
         
         .section-title {
-            font-size: 1.8rem;
+            font-size: 1.6rem;
             text-align: center;
-            margin-bottom: 40px;
-            color: var(--deep-red);
+            margin-bottom: 50px;
+            color: var(--slate);
+            font-weight: 300;
+            letter-spacing: 2px;
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
         
-        .section-title::after {
+        .section-title:after {
             content: "";
             position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--gold);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 1px;
+            background: var(--dusty-rose);
         }
         
         .event {
-            margin-bottom: 40px;
+            margin-bottom: 50px;
             text-align: center;
-            padding: 0 20px;
         }
         
         .event-title {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: var(--deep-red);
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: var(--slate);
+            font-weight: 400;
         }
         
         .event-date {
             font-family: 'Montserrat', sans-serif;
-            font-weight: bold;
+            font-weight: 300;
             letter-spacing: 1px;
-            margin-bottom: 10px;
-            color: var(--dark);
+            margin-bottom: 8px;
         }
         
         .event-time {
             font-family: 'Montserrat', sans-serif;
-            color: var(--dark);
-            margin-bottom: 10px;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-weight: 300;
         }
         
         .event-location {
-            font-style: italic;
-            color: var(--dark);
+            font-family: 'Cormorant', serif;
+            font-size: 1.1rem;
         }
         
         /* Parents Section */
@@ -184,60 +177,45 @@
             justify-content: space-around;
             flex-wrap: wrap;
             gap: 40px;
-            margin: 60px 0;
+            margin: 80px 0 60px;
         }
         
         .parents-box {
             flex: 1;
             min-width: 300px;
             text-align: center;
-            padding: 30px;
+            padding: 40px 30px;
             background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border-top: 3px solid var(--gold);
         }
         
         .parents-title {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            color: var(--deep-red);
-        }
-        
-        /* Footer */
-        .footer {
-            text-align: center;
-            padding: 40px;
-            background: var(--dark);
-            color: white;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .footer p {
-            margin: 5px 0;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+            color: var(--slate);
             letter-spacing: 1px;
+            font-weight: 400;
         }
         
-        /* Floral Accents */
-        .floral-accent {
-            position: absolute;
-            opacity: 0.1;
-            z-index: 0;
+        .parents-box p {
+            margin-bottom: 10px;
+            font-family: 'Cormorant', serif;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             .names {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
             .couple-photos {
                 flex-direction: column;
                 align-items: center;
+                gap: 30px;
             }
             
             .photo-placeholder {
                 width: 250px;
-                height: 350px;
+                height: 340px;
             }
             
             .details {
@@ -245,7 +223,7 @@
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Cormorant:wght@300;400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="hero">
@@ -263,7 +241,7 @@
         </div>
         
         <div class="details">
-            <h2 class="section-title">Our Wedding Events</h2>
+            <h2 class="section-title">Wedding Events</h2>
             
             <div class="event">
                 <h3 class="event-title">Wedding Ceremony</h3>
@@ -297,11 +275,6 @@
                 <p>Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta</p>
             </div>
         </div>
-    </div>
-    
-    <div class="footer">
-        <p>With best compliments from: Deepika Krishna, Hishay Kumar</p>
-        <p>Presents in blessings only</p>
     </div>
 </body>
 </html>
