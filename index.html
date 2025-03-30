@@ -110,7 +110,11 @@
             font-size: 1.5rem; /* Increased size */
             width: 48%;
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             position: relative;
+            overflow: hidden; /* Prevent image overflow */
         }
 
         .date-card:hover {
@@ -119,13 +123,16 @@
         }
 
         .date-card img {
-            position: absolute;
-            right: -10px;
-            top: 50%;
-            transform: translateY(-50%);
-            max-width: 200px;
+            width: 200px; /* Set a specific width for the image */
+            height: auto;
             border-radius: 8px;
             box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            margin-left: 2rem; /* Add spacing between text and image */
+            flex-shrink: 0;
+        }
+
+        .date-card .text-content {
+            flex-grow: 1; /* Allow text to take up remaining space */
         }
 
         .date {
@@ -224,8 +231,8 @@
             }
 
             .date-card img {
-                right: 5px;
                 max-width: 160px;
+                margin-left: 1rem;
             }
         }
     </style>
@@ -236,31 +243,35 @@
         <div class="content">
             <header>
                 <h1>Dipin & Amrutha</h1>
-                <div class="subtitle">Invite you to celebrate their Wedding</div>
+                <div class="subtitle">Invite you to celebrate their love</div>
             </header>
 
             <!-- Wedding Details -->
             <div class="date-section">
                 <div class="date-card">
-                    <div class="date-label">Wedding Ceremony</div>
-                    <div class="day">Monday</div>
-                    <div class="date">28</div>
-                    <div class="month-year">April 2025</div>
-                    <div class="time">Muhurtham: 12.05 pm - 12.25 pm</div>
-                    <div class="venue">
-                        Venue: <a href="https://maps.google.com?q=Anjali+Auditorium,+Omallur,+Pathanamthitta" class="venue-link" target="_blank">Anjali Auditorium, Omallur, Pathanamthitta</a>
+                    <div class="text-content">
+                        <div class="date-label">Wedding Ceremony</div>
+                        <div class="day">Monday</div>
+                        <div class="date">28</div>
+                        <div class="month-year">April 2025</div>
+                        <div class="time">Muhurtham: 12.05 pm - 12.25 pm</div>
+                        <div class="venue">
+                            Venue: <a href="https://maps.google.com?q=Anjali+Auditorium,+Omallur,+Pathanamthitta" class="venue-link" target="_blank">Anjali Auditorium, Omallur, Pathanamthitta</a>
+                        </div>
                     </div>
                     <img src="https://lh3.googleusercontent.com/d/1fo1_vowFysHlI0En7Y44tyLwK8-eFZy-" alt="Wedding Ceremony Image">
                 </div>
 
                 <div class="date-card">
-                    <div class="date-label">Reception</div>
-                    <div class="day">Thursday</div>
-                    <div class="date">1</div>
-                    <div class="month-year">May 2025</div>
-                    <div class="time">5.00 PM to 9.00 PM</div>
-                    <div class="venue">
-                        Venue: <a href="https://maps.google.com?q=Dream+Palace+Auditorium,+Trichambaram+Taliparamba" class="venue-link" target="_blank">Dream Palace Auditorium, Trichambaram Taliparamba</a>
+                    <div class="text-content">
+                        <div class="date-label">Reception</div>
+                        <div class="day">Thursday</div>
+                        <div class="date">1</div>
+                        <div class="month-year">May 2025</div>
+                        <div class="time">5.00 PM to 9.00 PM</div>
+                        <div class="venue">
+                            Venue: <a href="https://maps.google.com?q=Dream+Palace+Auditorium,+Trichambaram+Taliparamba" class="venue-link" target="_blank">Dream Palace Auditorium, Trichambaram Taliparamba</a>
+                        </div>
                     </div>
                     <img src="https://lh3.googleusercontent.com/d/1mTC8Df089AHqr36MLwZdZuqgWAc_sAxO" alt="Reception Image">
                 </div>
