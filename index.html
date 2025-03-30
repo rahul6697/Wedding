@@ -3,276 +3,210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dipin & Amrutha | Our Wedding</title>
+    <title>Dipin & Amrutha</title>
     <style>
-        /* Modern Aesthetic Style */
+        /* Ultra-Subtle Color Palette */
         :root {
-            --ivory: #FFFFF0;
-            --dusty-rose: #D4B8B8;
-            --sage: #B8C4B8;
-            --taupe: #C4B8A8;
-            --slate: #5A5A5A;
+            --cream: #FAFAF7;
+            --stone: #E8E8E3;
+            --slate: #6B6B6B;
+            --clay: #B3A9A0;
         }
         
         body {
-            font-family: 'Cormorant', serif;
-            background-color: var(--ivory);
+            font-family: 'Lora', serif;
+            background-color: var(--cream);
             color: var(--slate);
             margin: 0;
             padding: 0;
-            line-height: 1.8;
+            line-height: 1.7;
+            font-weight: 300;
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 800px;
             margin: 0 auto;
-            overflow: hidden;
+            padding: 0 20px;
         }
         
-        /* Hero Section */
+        /* Minimal Hero Section */
         .hero {
-            position: relative;
-            height: 80vh;
+            height: 60vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)), 
-                        url('https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;
-            margin-bottom: 60px;
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            padding: 20px;
+            background: linear-gradient(rgba(250,250,247,0.4), rgba(250,250,247,0.4)), 
+                        url('https://images.unsplash.com/photo-1523438885200-e635ba2c371e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+            margin: 40px 0 60px;
         }
         
         .names {
-            font-size: 4rem;
+            font-size: 3rem;
             font-weight: 300;
             margin: 0;
-            line-height: 1.1;
-            letter-spacing: 2px;
-            color: var(--slate);
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .date {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1rem;
-            letter-spacing: 4px;
-            margin: 30px 0;
-            text-transform: uppercase;
+            letter-spacing: 1px;
             color: var(--slate);
         }
         
         .divider {
-            width: 80px;
-            height: 1px;
-            background: var(--dusty-rose);
-            margin: 30px auto;
-            opacity: 0.7;
+            width: 60px;
+            height: 0.5px;
+            background: var(--clay);
+            margin: 25px auto;
+            opacity: 0.6;
         }
         
-        /* Couple Photos Section */
+        .date {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            color: var(--slate);
+            opacity: 0.8;
+        }
+        
+        /* Couple Photos */
         .couple-photos {
             display: flex;
             justify-content: center;
-            gap: 40px;
-            margin: 80px auto;
-            max-width: 900px;
+            gap: 30px;
+            margin: 60px auto;
         }
         
         .photo-placeholder {
-            width: 280px;
-            height: 380px;
-            background-color: var(--taupe);
+            width: 240px;
+            height: 320px;
+            background-color: var(--stone);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--slate);
-            font-family: 'Montserrat', sans-serif;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-            transition: all 0.4s ease;
-        }
-        
-        .photo-placeholder:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.12);
-        }
-        
-        .photo-placeholder::after {
-            content: "Add Photo";
-            position: absolute;
-            font-size: 1rem;
-            letter-spacing: 2px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
         }
         
         /* Details Section */
-        .details {
-            background: white;
-            padding: 60px 40px;
-            margin: 60px 0;
-            position: relative;
-        }
-        
-        .section-title {
-            font-size: 1.6rem;
+        .section {
+            max-width: 600px;
+            margin: 60px auto;
             text-align: center;
-            margin-bottom: 50px;
-            color: var(--slate);
-            font-weight: 300;
-            letter-spacing: 2px;
-            position: relative;
-        }
-        
-        .section-title:after {
-            content: "";
-            position: absolute;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 1px;
-            background: var(--dusty-rose);
         }
         
         .event {
             margin-bottom: 50px;
-            text-align: center;
         }
         
         .event-title {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-            color: var(--slate);
+            font-size: 1.1rem;
+            margin-bottom: 12px;
             font-weight: 400;
         }
         
-        .event-date {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 300;
-            letter-spacing: 1px;
-            margin-bottom: 8px;
-        }
-        
-        .event-time {
-            font-family: 'Montserrat', sans-serif;
-            font-style: italic;
-            margin-bottom: 15px;
-            font-weight: 300;
-        }
-        
-        .event-location {
-            font-family: 'Cormorant', serif;
-            font-size: 1.1rem;
+        .event-details {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            opacity: 0.9;
         }
         
         /* Parents Section */
-        .parents-section {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 40px;
-            margin: 80px 0 60px;
+        .parents {
+            margin: 70px auto;
+            max-width: 600px;
         }
         
         .parents-box {
-            flex: 1;
-            min-width: 300px;
+            margin-bottom: 40px;
             text-align: center;
-            padding: 40px 30px;
-            background: white;
         }
         
         .parents-title {
-            font-size: 1.1rem;
-            margin-bottom: 25px;
-            color: var(--slate);
-            letter-spacing: 1px;
+            font-size: 1rem;
+            margin-bottom: 15px;
             font-weight: 400;
         }
         
-        .parents-box p {
-            margin-bottom: 10px;
-            font-family: 'Cormorant', serif;
+        .parents-content {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            opacity: 0.9;
         }
         
         /* Responsive */
         @media (max-width: 768px) {
             .names {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
             }
             
             .couple-photos {
                 flex-direction: column;
                 align-items: center;
-                gap: 30px;
             }
             
             .photo-placeholder {
-                width: 250px;
-                height: 340px;
-            }
-            
-            .details {
-                padding: 40px 20px;
+                width: 220px;
+                height: 300px;
             }
         }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@300;400&family=Cormorant:wght@300;400&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@300;400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="hero">
-        <div class="hero-content">
-            <h1 class="names">Dipin & Amrutha</h1>
-            <div class="divider"></div>
-            <div class="date">28 April 2025 • 1 May 2025</div>
-        </div>
-    </div>
-    
     <div class="container">
+        <div class="hero">
+            <div>
+                <h1 class="names">Dipin & Amrutha</h1>
+                <div class="divider"></div>
+                <div class="date">28 APRIL 2025</div>
+            </div>
+        </div>
+        
         <div class="couple-photos">
             <div class="photo-placeholder">Dipin's Photo</div>
             <div class="photo-placeholder">Amrutha's Photo</div>
         </div>
         
-        <div class="details">
-            <h2 class="section-title">Wedding Events</h2>
-            
+        <div class="section">
             <div class="event">
-                <h3 class="event-title">Wedding Ceremony</h3>
-                <div class="event-date">Monday, 28th April 2025</div>
-                <div class="event-time">Muhurtham between 12.05 pm & 12.25 pm</div>
-                <div class="event-location">Anjali Auditorium, Omallur, Pathanamthitta</div>
+                <div class="event-title">Wedding Ceremony</div>
+                <div class="event-details">
+                    Monday, 28th April 2025<br>
+                    Muhurtham between 12.05 pm & 12.25 pm<br>
+                    Anjali Auditorium, Omallur, Pathanamthitta
+                </div>
             </div>
             
             <div class="event">
-                <h3 class="event-title">Reception</h3>
-                <div class="event-date">Thursday, 1st May 2025</div>
-                <div class="event-time">5.00 PM to 9.00 PM</div>
-                <div class="event-location">Dream Palace Auditorium, Trichambaram, Taliparamba</div>
+                <div class="event-title">Reception</div>
+                <div class="event-details">
+                    Thursday, 1st May 2025<br>
+                    5.00 PM to 9.00 PM<br>
+                    Dream Palace Auditorium, Trichambaram, Taliparamba
+                </div>
             </div>
         </div>
         
-        <div class="parents-section">
+        <div class="parents">
             <div class="parents-box">
-                <h3 class="parents-title">Groom's Family</h3>
-                <p>Dipin Krishna</p>
-                <p>Son of Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.</p>
-                <p>"K.C. House", P.O. Mullakkodi, Mayyil, Kamur</p>
-                <p>Ph: 9947065770, 9526935135</p>
-                <p>Grandson of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar</p>
+                <div class="parents-title">Groom's Family</div>
+                <div class="parents-content">
+                    Dipin Krishna<br>
+                    Son of Mrs. Sujatha C.K. & Mr. Radhakrishnan P.P.<br>
+                    "K.C. House", P.O. Mullakkodi, Mayyil, Kamur<br>
+                    Ph: 9947065770, 9526935135<br>
+                    Grandson of Late K.O. Kammaran Nambiar & Late K.C. Raghavan Nambiar
+                </div>
             </div>
             
             <div class="parents-box">
-                <h3 class="parents-title">Bride's Family</h3>
-                <p>Amrutha Sreeraj</p>
-                <p>Daughter of Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai</p>
-                <p>Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta</p>
+                <div class="parents-title">Bride's Family</div>
+                <div class="parents-content">
+                    Amrutha Sreeraj<br>
+                    Daughter of Mrs. Jayasree R. Pillai & Mr. Rajendran Pillai<br>
+                    Pezhumkattil-Tharakam, Thazham (P.O.), Malayalapuzha, Pathanamthitta
+                </div>
             </div>
         </div>
     </div>
